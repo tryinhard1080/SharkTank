@@ -15,7 +15,8 @@ import {
   Building,
   Database,
   BarChart3,
-  Info
+  Info,
+  X
 } from 'lucide-react';
 
 interface ParsedField {
@@ -587,134 +588,6 @@ const ScannerDemo: React.FC = () => {
               <motion.button
                 onClick={resetDemo}
                 className="bg-deep-green text-white px-8 py-3 rounded-xl hover:bg-deep-green/80 transition-ease font-medium"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Run Demo Again
-              </motion.button>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </div>
-  );
-};
-
-export default ScannerDemo;
-                          </div>
-                          <div className="text-lg font-semibold text-gray-900">
-                            {field.value}
-                          </div>
-                        </div>
-                      </motion.div>
-                    );
-                  })}
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Step 3: Property Analysis Report */}
-        <AnimatePresence>
-          {showPropertyReport && (
-            <motion.div
-              className="max-w-7xl mx-auto mb-12"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <PropertyAnalysisReport />
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Step 4: Data Warehouse */}
-        <AnimatePresence>
-          {showDataWarehouse && (
-            <motion.div
-              className="max-w-7xl mx-auto mb-12"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              {/* Data Flow Visualization */}
-              <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-8 text-center">
-                  Contract Data Warehouse Integration
-                </h3>
-                
-                <div className="flex items-center justify-between overflow-x-auto">
-                  <motion.div
-                    className="flex flex-col items-center min-w-max"
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.6, duration: 0.5 }}
-                  >
-                    <div className="bg-blue-100 p-4 rounded-xl mb-2">
-                      <FileText className="w-8 h-8 text-blue-600" />
-                    </div>
-                    <span className="text-sm font-medium text-gray-700">Parsed Data</span>
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.8, duration: 0.3 }}
-                  >
-                    <ArrowRight className="w-8 h-8 text-green-500 mx-8" />
-                  </motion.div>
-
-                  <motion.div
-                    className="flex flex-col items-center min-w-max"
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1, duration: 0.5 }}
-                  >
-                    <div className="bg-green-100 p-4 rounded-xl mb-2">
-                      <Database className="w-8 h-8 text-green-600" />
-                    </div>
-                    <span className="text-sm font-medium text-gray-700">Data Warehouse</span>
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 1.2, duration: 0.3 }}
-                  >
-                    <ArrowRight className="w-8 h-8 text-green-500 mx-8" />
-                  </motion.div>
-
-                  <motion.div
-                    className="flex flex-col items-center min-w-max"
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 1.4, duration: 0.5 }}
-                  >
-                    <div className="bg-purple-100 p-4 rounded-xl mb-2">
-                      <BarChart3 className="w-8 h-8 text-purple-600" />
-                    </div>
-                    <span className="text-sm font-medium text-gray-700">Analytics</span>
-                  </motion.div>
-                </div>
-              </div>
-
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Reset Button */}
-        <AnimatePresence>
-          {currentStep === 4 && (
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2.5, duration: 0.5 }}
-            >
-              <motion.button
-                onClick={resetDemo}
-                className="bg-green-600 text-white px-8 py-3 rounded-xl hover:bg-green-700 transition-colors duration-200 font-medium"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
