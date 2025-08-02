@@ -227,6 +227,7 @@ const DataWarehouse: React.FC = () => {
   const totalMonthlySpend = properties.reduce((sum, property) => sum + property.monthlySpend, 0);
   const totalUnits = properties.reduce((sum, property) => sum + property.units, 0);
   const totalSavingsOpportunity = properties.reduce((sum, property) => sum + property.savingsOpportunity, 0);
+  const averageSpendPerProperty = Math.round(totalMonthlySpend / totalProperties);
 
   const handleSort = (field: string) => {
     if (sortField === field) {
@@ -330,7 +331,7 @@ const DataWarehouse: React.FC = () => {
           {/* Key Metrics */}
           <div className="bg-white rounded-xl shadow-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-6">Portfolio Overview</h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
               <div className="bg-blue-50 p-4 rounded-lg text-center">
                 <div className="text-2xl font-bold text-blue-600">{totalProperties}</div>
                 <div className="text-sm text-gray-600">Total Properties</div>
@@ -338,6 +339,10 @@ const DataWarehouse: React.FC = () => {
               <div className="bg-green-50 p-4 rounded-lg text-center">
                 <div className="text-2xl font-bold text-green-600">${totalMonthlySpend.toLocaleString()}</div>
                 <div className="text-sm text-gray-600">Monthly Spend</div>
+              </div>
+              <div className="bg-indigo-50 p-4 rounded-lg text-center">
+                <div className="text-2xl font-bold text-indigo-600">${averageSpendPerProperty.toLocaleString()}</div>
+                <div className="text-sm text-gray-600">Avg Spend/Property</div>
               </div>
               <div className="bg-purple-50 p-4 rounded-lg text-center">
                 <div className="text-2xl font-bold text-purple-600">{totalUnits.toLocaleString()}</div>
