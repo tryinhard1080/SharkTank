@@ -228,17 +228,6 @@ const DataWarehouse: React.FC = () => {
   const totalUnits = properties.reduce((sum, property) => sum + property.units, 0);
   const totalSavingsOpportunity = properties.reduce((sum, property) => sum + property.savingsOpportunity, 0);
 
-  // Calculate summary statistics
-  const haulerBreakdown = properties.reduce((acc, property) => {
-    acc[property.currentHauler] = (acc[property.currentHauler] || 0) + 1;
-    return acc;
-  }, {} as Record<string, number>);
-
-  const totalProperties = properties.length;
-  const totalMonthlySpend = properties.reduce((sum, property) => sum + property.monthlySpend, 0);
-  const totalUnits = properties.reduce((sum, property) => sum + property.units, 0);
-  const totalSavingsOpportunity = properties.reduce((sum, property) => sum + property.savingsOpportunity, 0);
-
   const handleSort = (field: string) => {
     if (sortField === field) {
       setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
