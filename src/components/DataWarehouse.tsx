@@ -56,6 +56,159 @@ const DataWarehouse: React.FC = () => {
       currentHauler: 'Waste Management',
       contractLoaded: true,
       contractFilePath: '/contracts/sunset_towers_contract.pdf'
+    },
+    // Additional Waste Management properties (8 more for 10 total)
+    {
+      property: 'Harbor View Apartments',
+      monthlySpend: 2180,
+      contractExpiration: '2024-09-30',
+      savingsOpportunity: 430,
+      units: 95,
+      currentHauler: 'Waste Management',
+      contractLoaded: true,
+      contractFilePath: '/contracts/harbor_view_contract.pdf'
+    },
+    {
+      property: 'Pine Ridge Complex',
+      monthlySpend: 2750,
+      contractExpiration: '2025-01-15',
+      savingsOpportunity: 520,
+      units: 128,
+      currentHauler: 'Waste Management',
+      contractLoaded: true,
+      contractFilePath: '/contracts/pine_ridge_contract.pdf'
+    },
+    {
+      property: 'Lakeside Manor',
+      monthlySpend: 1980,
+      contractExpiration: '2024-07-20',
+      savingsOpportunity: 390,
+      units: 88,
+      currentHauler: 'Waste Management',
+      contractLoaded: false,
+      contractFilePath: ''
+    },
+    {
+      property: 'Brookstone Village',
+      monthlySpend: 3450,
+      contractExpiration: '2025-03-10',
+      savingsOpportunity: 680,
+      units: 165,
+      currentHauler: 'Waste Management',
+      contractLoaded: true,
+      contractFilePath: '/contracts/brookstone_contract.pdf'
+    },
+    {
+      property: 'Cedar Park Residences',
+      monthlySpend: 2320,
+      contractExpiration: '2024-11-05',
+      savingsOpportunity: 460,
+      units: 105,
+      currentHauler: 'Waste Management',
+      contractLoaded: true,
+      contractFilePath: '/contracts/cedar_park_contract.pdf'
+    },
+    {
+      property: 'Millfield Commons',
+      monthlySpend: 2650,
+      contractExpiration: '2024-12-18',
+      savingsOpportunity: 530,
+      units: 118,
+      currentHauler: 'Waste Management',
+      contractLoaded: true,
+      contractFilePath: '/contracts/millfield_contract.pdf'
+    },
+    {
+      property: 'Valley View Estates',
+      monthlySpend: 1750,
+      contractExpiration: '2024-08-12',
+      savingsOpportunity: 350,
+      units: 78,
+      currentHauler: 'Waste Management',
+      contractLoaded: false,
+      contractFilePath: ''
+    },
+    {
+      property: 'Highland Park Towers',
+      monthlySpend: 3890,
+      contractExpiration: '2025-04-22',
+      savingsOpportunity: 770,
+      units: 185,
+      currentHauler: 'Waste Management',
+      contractLoaded: true,
+      contractFilePath: '/contracts/highland_park_contract.pdf'
+    },
+    // Additional Republic Services properties (3 more for 5 total)
+    {
+      property: 'Riverside Terrace',
+      monthlySpend: 2280,
+      contractExpiration: '2024-10-08',
+      savingsOpportunity: 455,
+      units: 98,
+      currentHauler: 'Republic Services',
+      contractLoaded: true,
+      contractFilePath: '/contracts/riverside_terrace_contract.pdf'
+    },
+    {
+      property: 'Maple Grove Apartments',
+      monthlySpend: 1920,
+      contractExpiration: '2025-02-14',
+      savingsOpportunity: 385,
+      units: 82,
+      currentHauler: 'Republic Services',
+      contractLoaded: true,
+      contractFilePath: '/contracts/maple_grove_contract.pdf'
+    },
+    {
+      property: 'Westfield Gardens',
+      monthlySpend: 3150,
+      contractExpiration: '2024-09-25',
+      savingsOpportunity: 625,
+      units: 142,
+      currentHauler: 'Republic Services',
+      contractLoaded: false,
+      contractFilePath: ''
+    },
+    // Additional GFL Environmental properties (4 more for 5 total)
+    {
+      property: 'Summit Place',
+      monthlySpend: 2480,
+      contractExpiration: '2024-11-12',
+      savingsOpportunity: 495,
+      units: 108,
+      currentHauler: 'GFL Environmental',
+      contractLoaded: true,
+      contractFilePath: '/contracts/summit_place_contract.pdf'
+    },
+    {
+      property: 'Greenwood Court',
+      monthlySpend: 1850,
+      contractExpiration: '2025-01-28',
+      savingsOpportunity: 370,
+      units: 85,
+      currentHauler: 'GFL Environmental',
+      contractLoaded: true,
+      contractFilePath: '/contracts/greenwood_court_contract.pdf'
+    },
+    {
+      property: 'Northgate Plaza',
+      monthlySpend: 2950,
+      contractExpiration: '2024-12-05',
+      savingsOpportunity: 590,
+      units: 138,
+      currentHauler: 'GFL Environmental',
+      contractLoaded: false,
+      contractFilePath: ''
+    },
+    {
+      property: 'Fairview Heights',
+      monthlySpend: 2190,
+      contractExpiration: '2025-03-18',
+      savingsOpportunity: 440,
+      units: 96,
+      currentHauler: 'GFL Environmental',
+      contractLoaded: true,
+      contractFilePath: '/contracts/fairview_heights_contract.pdf'
     }
   ];
 
@@ -63,6 +216,17 @@ const DataWarehouse: React.FC = () => {
     const timer = setTimeout(() => setFlowAnimation(true), 1000);
     return () => clearTimeout(timer);
   }, []);
+
+  // Calculate summary statistics
+  const haulerBreakdown = properties.reduce((acc, property) => {
+    acc[property.currentHauler] = (acc[property.currentHauler] || 0) + 1;
+    return acc;
+  }, {} as Record<string, number>);
+
+  const totalProperties = properties.length;
+  const totalMonthlySpend = properties.reduce((sum, property) => sum + property.monthlySpend, 0);
+  const totalUnits = properties.reduce((sum, property) => sum + property.units, 0);
+  const totalSavingsOpportunity = properties.reduce((sum, property) => sum + property.savingsOpportunity, 0);
 
   const handleSort = (field: string) => {
     if (sortField === field) {
