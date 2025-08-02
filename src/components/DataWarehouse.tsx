@@ -266,13 +266,13 @@ const DataWarehouse: React.FC = () => {
                       {property.contractLoaded ? (
                         <button
                           onClick={() => handleViewContract(property.property, property.contractFilePath)}
-                          className="text-blue-600 hover:text-blue-800 transition-colors duration-200"
-                          title="View Contract"
+                          className="flex items-center text-blue-600 hover:text-blue-800 text-sm"
                         >
-                          <FileText className="w-5 h-5" />
+                          <FileText className="w-4 h-4 mr-1" />
+                          View
                         </button>
                       ) : (
-                        <FileText className="w-5 h-5 text-gray-300" title="Contract not available" />
+                        <span className="text-gray-400 text-sm">Not loaded</span>
                       )}
                     </td>
                   </tr>
