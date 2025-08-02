@@ -228,6 +228,17 @@ const DataWarehouse: React.FC = () => {
   const totalUnits = properties.reduce((sum, property) => sum + property.units, 0);
   const totalSavingsOpportunity = properties.reduce((sum, property) => sum + property.savingsOpportunity, 0);
 
+  // Calculate summary statistics
+  const haulerBreakdown = properties.reduce((acc, property) => {
+    acc[property.currentHauler] = (acc[property.currentHauler] || 0) + 1;
+    return acc;
+  }, {} as Record<string, number>);
+
+  const totalProperties = properties.length;
+  const totalMonthlySpend = properties.reduce((sum, property) => sum + property.monthlySpend, 0);
+  const totalUnits = properties.reduce((sum, property) => sum + property.units, 0);
+  const totalSavingsOpportunity = properties.reduce((sum, property) => sum + property.savingsOpportunity, 0);
+
   const handleSort = (field: string) => {
     if (sortField === field) {
       setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
@@ -325,11 +336,70 @@ const DataWarehouse: React.FC = () => {
           </div>
         </div>
 
+        {/* Portfolio Summary Dashboard */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          {/* Key Metrics */}
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <h3 className="text-xl font-semibold text-gray-900 mb-6">Portfolio Overview</h3>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-blue-50 p-4 rounded-lg text-center">
+                <div className="text-2xl font-bold text-blue-600">{totalProperties}</div>
+                <div className="text-sm text-gray-600">Total Properties</div>
+              </div>
+              <div className="bg-green-50 p-4 rounded-lg text-center">
+                <div className="text-2xl font-bold text-green-600">${totalMonthlySpend.toLocaleString()}</div>
+                <div className="text-sm text-gray-600">Monthly Spend</div>
+              </div>
+              <div className="bg-purple-50 p-4 rounded-lg text-center">
+                <div className="text-2xl font-bold text-purple-600">{totalUnits.toLocaleString()}</div>
+                <div className="text-sm text-gray-600">Total Units</div>
+              </div>
+              <div className="bg-orange-50 p-4 rounded-lg text-center">
+                <div className="text-2xl font-bold text-orange-600">${totalSavingsOpportunity.toLocaleString()}</div>
+                <div className="text-sm text-gray-600">Savings Opportunity</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Hauler Distribution */}
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <h3 className="text-xl font-semibold text-gray-900 mb-6">Hauler Distribution</h3>
+            <div className="space-y-4">
+              {Object.entries(haulerBreakdown)
+                .sort(([,a], [,b]) => b - a)
+                .map(([hauler, count]) => {
+                  const percentage = Math.round((count / totalProperties) * 100);
+                  const getHaulerColor = (haulerName: string) => {
+                    if (haulerName.includes('Waste Management')) return 'bg-green-500';
+                    if (haulerName.includes('Republic')) return 'bg-blue-500';
+                    if (haulerName.includes('GFL')) return 'bg-purple-500';
+                    return 'bg-gray-500';
+                  };
+                  
+                  return (
+                    <div key={hauler} className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-medium text-gray-700">{hauler}</span>
+                        <span className="text-sm text-gray-600">{count} contracts ({percentage}%)</span>
+                      </div>
+                      <div className="w-full bg-gray-200 rounded-full h-2">
+                        <div
+                          className={`h-2 rounded-full ${getHaulerColor(hauler)}`}
+                          style={{ width: `${percentage}%` }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
+        </div>
+
         {/* Property Spend Tracker */}
         <div className="bg-white rounded-xl shadow-lg p-6">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-xl font-semibold text-gray-900">
-              Property Spend Tracker
+              Waste Agreement Tracker
             </h3>
             
             <div className="flex items-center space-x-4">
