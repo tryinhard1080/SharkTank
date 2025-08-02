@@ -6,6 +6,7 @@ import DataWarehouse from './components/DataWarehouse';
 import ScannerDemo from './components/ScannerDemo';
 import InvoiceDemo from './components/InvoiceDemo';
 import PropertyAnalysisReport from './components/PropertyAnalysisReport';
+import CompactorBidComparison from './components/CompactorBidComparison';
 import Header from './components/Header';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     { id: 'landing', name: 'Process Overview', icon: FileText },
     { id: 'scanner', name: 'Contract Demo', icon: Scan },
     { id: 'invoice', name: 'Invoice Demo', icon: Scan },
+    { id: 'compactor', name: 'Compactor Bid', icon: FileText },
     { id: 'dashboard', name: 'Combined Dashboard', icon: BarChart3 },
     { id: 'warehouse', name: 'Data Warehouse', icon: Database },
     { id: 'report', name: 'Property Report', icon: FileText }
@@ -27,6 +29,8 @@ function App() {
         return <ScannerDemo />;
       case 'invoice':
         return <InvoiceDemo />;
+      case 'compactor':
+        return <CompactorBidComparison />;
       case 'dashboard':
         return <CombinedDashboard />;
       case 'warehouse':
