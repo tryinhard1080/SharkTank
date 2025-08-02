@@ -18,7 +18,7 @@ function App() {
     { id: 'scanner', name: 'Contract Demo', icon: Scan },
     { id: 'invoice', name: 'Invoice Demo', icon: Scan },
     { id: 'compactor', name: 'Compactor Bid', icon: FileText },
-    { id: 'dashboard', name: 'Combined Dashboard', icon: BarChart3 },
+    { id: 'dashboard', name: 'Opportunities', icon: BarChart3 },
     { id: 'warehouse', name: 'Data Warehouse', icon: Database },
     { id: 'report', name: 'Property Report', icon: FileText }
   ];

@@ -307,10 +307,10 @@ const CombinedDashboard: React.FC = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl font-bold text-white mb-2 font-heading">
-            Comprehensive Waste Management Dashboard
+            Opportunity Dashboard
           </h2>
-          <p className="text-gray-300 font-body">
-            Complete analysis of property portfolio contracts, savings opportunities, and notice periods
+          <p className="text-white font-body">
+            Identify cost savings and contract optimization opportunities across your property portfolio
           </p>
         </motion.div>
 
@@ -332,7 +332,7 @@ const CombinedDashboard: React.FC = () => {
             <h3 className="text-xl font-semibold text-white font-heading">
               Property Contract Analysis
             </h3>
-            <div className="text-sm text-gray-400">
+            <div className="text-sm text-gray-200">
               {propertyData.length} properties analyzed
             </div>
           </div>
@@ -384,11 +384,11 @@ const CombinedDashboard: React.FC = () => {
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center text-sm text-gray-300">
+                        <div className="flex items-center text-sm text-gray-200">
                           <Calendar className="w-4 h-4 text-gray-500 mr-2" />
                           <div>
                             <div>{formatDate(property.contractStart)}</div>
-                            <div className="text-xs text-gray-400">
+                            <div className="text-xs text-gray-300">
                               to {formatDate(property.contractEnd)}
                             </div>
                           </div>
@@ -400,11 +400,11 @@ const CombinedDashboard: React.FC = () => {
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center text-sm text-gray-300">
+                        <div className="flex items-center text-sm text-gray-200">
                           <Truck className="w-4 h-4 text-gray-500 mr-2" />
                           <div>
                             <div>{property.frequency}</div>
-                            <div className="text-xs text-gray-400">{property.binSize}</div>
+                            <div className="text-xs text-gray-300">{property.binSize}</div>
                           </div>
                         </div>
                       </td>
@@ -412,13 +412,13 @@ const CombinedDashboard: React.FC = () => {
                         <div className="flex items-center text-sm">
                           <Bell className="w-4 h-4 text-gray-500 mr-2" />
                           <div>
-                            <div className="text-gray-300">{formatDate(property.noticePeriod)}</div>
+                            <div className="text-gray-200">{formatDate(property.noticePeriod)}</div>
                             <div className={`text-xs ${
                               daysUntilNotice < 30 
                                 ? 'text-red-600' 
                                 : daysUntilNotice < 60 
                                 ? 'text-orange-600' 
-                                : 'text-gray-400'
+                                : 'text-gray-300'
                             }`}>
                               {daysUntilNotice > 0 ? `${daysUntilNotice} days` : 'Past due'}
                             </div>
@@ -429,7 +429,7 @@ const CombinedDashboard: React.FC = () => {
                         <div className={`text-sm ${getSavingsColor(property.savingsNum)}`}>
                           {property.savingsFound}
                           {property.savingsNum > 0 && (
-                            <div className="text-xs text-gray-400">
+                            <div className="text-xs text-gray-300">
                               {Math.round((property.savingsNum / property.monthlyRateNum) * 100)}% reduction
                             </div>
                           )}
@@ -453,25 +453,25 @@ const CombinedDashboard: React.FC = () => {
               <div className="text-lg font-bold text-deep-green">
                 {propertyData.length}
               </div>
-              <div className="text-xs text-gray-400">Total Properties</div>
+              <div className="text-xs text-gray-200">Total Properties</div>
             </div>
             <div className="text-center p-3 bg-deep-green/10 rounded-lg">
               <div className="text-lg font-bold text-deep-green">
                 ${totalSavings.toLocaleString()}
               </div>
-              <div className="text-xs text-gray-400">Monthly Savings Found</div>
+              <div className="text-xs text-gray-200">Monthly Savings Found</div>
             </div>
             <div className="text-center p-3 bg-deep-green/10 rounded-lg">
               <div className="text-lg font-bold text-deep-green">
                 {propertiesWithSavings}/{propertyData.length}
               </div>
-              <div className="text-xs text-gray-400">Properties w/ Savings</div>
+              <div className="text-xs text-gray-200">Properties w/ Savings</div>
             </div>
             <div className="text-center p-3 bg-orange-50 rounded-lg">
               <div className="text-lg font-bold text-orange-600">
                 {propertyData.filter(p => p.status === 'Expiring Soon').length}
               </div>
-              <div className="text-xs text-gray-400">Expiring Soon</div>
+              <div className="text-xs text-gray-200">Expiring Soon</div>
             </div>
           </div>
         </motion.div>
