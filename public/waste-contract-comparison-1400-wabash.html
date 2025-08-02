@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Service Contract Comparison - 1400 S Wabash Ave</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.4;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 5px;
+            color: #2c3e50;
+            font-size: 28px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        .property-info {
+            background-color: #e9f4ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 4px solid #007bff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+            color: white;
+            font-size: 14px;
+        }
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 13px;
+            vertical-align: top;
+        }
+        .header-row th:first-child {
+            background-color: #5a6268;
+            width: 25%;
+        }
+        .header-row th:nth-child(2) {
+            background-color: #dc3545;
+            width: 37.5%;
+        }
+        .header-row th:nth-child(3) {
+            background-color: #28a745;
+            width: 37.5%;
+        }
+        .sbc-col {
+            background-color: #f8d7da;
+        }
+        .wm-col {
+            background-color: #d4edda;
+        }
+        .cost-comparison {
+            margin: 30px 0;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .cost-comparison h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        .cost-breakdown {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .breakdown-box {
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+        .sbc-breakdown {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        .wm-breakdown {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        .cost-bars {
+            margin: 20px 0;
+        }
+        .cost-bar {
+            height: 50px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        .sbc-bar {
+            background-color: #dc3545;
+            width: 100%;
+        }
+        .wm-bar {
+            background-color: #28a745;
+            width: 43%;
+        }
+        .savings-box {
+            background-color: #d1ecf1;
+            border: 2px solid #bee5eb;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            color: #0c5460;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .analysis-section {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .analysis-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        .key-points {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .point-box {
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #007bff;
+        }
+        .sbc-point {
+            background-color: #f8d7da;
+            border-left-color: #dc3545;
+        }
+        .wm-point {
+            background-color: #d4edda;
+            border-left-color: #28a745;
+        }
+        .recommendation {
+            background-color: #28a745;
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        .recommendation h2 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        .recommendation ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        .recommendation li {
+            margin: 8px 0;
+            font-size: 15px;
+        }
+        .red-text {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .green-text {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .warning-box {
+            background-color: #fff3cd;
+            border: 2px solid #ffeaa7;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+        }
+        .metric-line {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Waste Service Contract Comparison</h1>
+    <p class="subtitle">1400 S Wabash Ave, Chicago, IL 60605 • 300 Units • Analysis Date: July 18, 2025</p>
+    
+    <div class="property-info">
+        <strong>Current Situation:</strong> Evaluating new waste service providers for property transition<br>
+        <strong>Manager:</strong> Darian Jackson (Greystar)<br>
+        <strong>Service Start Date:</strong> August 1, 2025
+    </div>
+    
+    <table>
+        <thead>
+            <tr class="header-row">
+                <th>Contract Element</th>
+                <th>SBC Waste Solutions</th>
+                <th>Waste Management</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Monthly Service Cost</strong></td>
+                <td class="sbc-col">$1,885.00<br><span class="red-text">Plus $39/month container rental</span></td>
+                <td class="wm-col">$1,079.40<br><span class="green-text">All-inclusive pricing</span></td>
+            </tr>
+            <tr>
+                <td><strong>Contract Term</strong></td>
+                <td class="sbc-col">36 months (3 years)<br><span class="red-text">Auto-renewal for additional 3 years</span></td>
+                <td class="wm-col">60 months (5 years)<br><span class="red-text">Auto-renewal for 12-month terms</span></td>
+            </tr>
+            <tr>
+                <td><strong>Termination Requirements</strong></td>
+                <td class="sbc-col">90-180 days notice required<br><span class="red-text">9 months penalty + $125/container removal</span></td>
+                <td class="wm-col">Termination allowed after initial term<br><span class="green-text">More flexible terms</span></td>
+            </tr>
+            <tr>
+                <td><strong>Initial Setup Costs</strong></td>
+                <td class="sbc-col">$1,170.00<br>• Delivery: $125.00<br>• Compactor Installation: $1,045.00<br><span class="red-text">High upfront investment</span></td>
+                <td class="wm-col">No setup fees indicated<br><span class="green-text">Lower initial investment</span></td>
+            </tr>
+            <tr>
+                <td><strong>Equipment Configuration</strong></td>
+                <td class="sbc-col">• 1 @ 3 cu yd compactor (Garbage)<br>• 1 @ 2 cu yd compactor (Recycling)<br>• Plus compactor lease: $250/month</td>
+                <td class="wm-col">• 3 @ 2 cu yd containers (MSW)<br>• 1 @ 2 cu yd container (MSW)<br>• 2 @ 2 cu yd containers (Recycle)</td>
+            </tr>
+            <tr>
+                <td><strong>Service Frequency</strong></td>
+                <td class="sbc-col">• Garbage: 4x/week<br>• Recycling: 2x/week<br><span class="green-text">Higher service frequency</span></td>
+                <td class="wm-col">• MSW: 7x/week (daily)<br>• Recycling: 7x/week<br><span class="green-text">Maximum service frequency</span></td>
+            </tr>
+            <tr>
+                <td><strong>Overage/Extra Charges</strong></td>
+                <td class="sbc-col">$35.00 per yard overage<br><span class="green-text">Lower overage rate</span></td>
+                <td class="wm-col">$50-$12.50 per extra lift<br>$50 per instance overage</td>
+            </tr>
+            <tr>
+                <td><strong>Chicago Permit Fees</strong></td>
+                <td class="sbc-col">Yes - included in quote<br><span class="green-text">Transparent fee inclusion</span></td>
+                <td class="wm-col">Not specified<br><span class="red-text">May be additional</span></td>
+            </tr>
+            <tr>
+                <td><strong>Additional Fees</strong></td>
+                <td class="sbc-col">• Container rental: $39/month<br>• Compactor lease: $250/month<br><span class="red-text">$289/month in equipment fees</span></td>
+                <td class="wm-col">No additional monthly fees<br><span class="green-text">Simplified billing</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="cost-comparison">
+        <h2>Monthly Cost Breakdown Analysis</h2>
+        
+        <div class="cost-breakdown">
+            <div class="breakdown-box sbc-breakdown">
+                <h3>SBC Waste Solutions - $2,174.00/month</h3>
+                <div class="metric-line"><span><strong>Garbage Service:</strong></span><span>$1,080.00</span></div>
+                <div class="metric-line"><span><strong>Recycling Service:</strong></span><span>$516.00</span></div>
+                <div class="metric-line"><span><strong>Container Rental:</strong></span><span>$39.00</span></div>
+                <div class="metric-line"><span><strong>Compactor Lease:</strong></span><span>$250.00</span></div>
+                <div class="metric-line"><span><strong>Equipment as % of Total:</strong></span><span>$289.00 (13.3%)</span></div>
+                <div style="border-top: 2px solid #dc3545; margin-top: 10px; padding-top: 5px;">
+                    <div class="metric-line"><span><strong>Total Monthly Cost:</strong></span><span style="color: #dc3545; font-weight: bold;">$2,174.00</span></div>
+                    <div class="metric-line"><span><strong>Cost per Door:</strong></span><span style="color: #dc3545; font-weight: bold;">$7.25</span></div>
+                </div>
+            </div>
+            
+            <div class="breakdown-box wm-breakdown">
+                <h3>Waste Management - $1,079.40/month</h3>
+                <div class="metric-line"><span><strong>MSW Service (4 units):</strong></span><span>$719.60</span></div>
+                <div class="metric-line"><span><strong>Recycling Service (2 units):</strong></span><span>$359.80</span></div>
+                <div class="metric-line"><span><strong>Container Rental:</strong></span><span>Included</span></div>
+                <div class="metric-line"><span><strong>Equipment Fees:</strong></span><span>$0.00</span></div>
+                <div class="metric-line"><span><strong>Additional Fees:</strong></span><span>0%</span></div>
+                <div style="border-top: 2px solid #28a745; margin-top: 10px; padding-top: 5px;">
+                    <div class="metric-line"><span><strong>Total Monthly Cost:</strong></span><span style="color: #28a745; font-weight: bold;">$1,079.40</span></div>
+                    <div class="metric-line"><span><strong>Cost per Door:</strong></span><span style="color: #28a745; font-weight: bold;">$3.60</span></div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Annual Cost Comparison</h2>
+        <div class="cost-bars">
+            <div class="cost-bar sbc-bar">
+                SBC Waste Solutions: $26,088/year
+            </div>
+            <div class="cost-bar wm-bar">
+                Waste Management: $12,952.80/year
+            </div>
+        </div>
+        <div class="savings-box">
+            Waste Management Savings: $13,135.20 annually (50.3% reduction)<br>
+            $3.65 less per door per month
+        </div>
+    </div>
+
+    <div class="analysis-section">
+        <h2>Service Volume & Efficiency Analysis</h2>
+        
+        <div class="warning-box">
+            <strong>Key Finding:</strong> Despite SBC offering compactors (which typically provide 4:1 compaction ratio), their total weekly capacity is significantly lower than WM's standard container configuration. This suggests potential service inadequacy issues.<br><br>
+            <strong>Capacity Analysis:</strong><br>
+            • SBC: 3 cu yd compacted (≈12 cu yd equivalent) + 2 cu yd = 14 cu yd weekly capacity<br>
+            • WM: 6 containers @ 2 cu yd each @ 7x/week = 84 cu yd weekly capacity<br>
+            • WM provides 6x more waste capacity despite lower cost
+        </div>
+        
+        <div class="key-points">
+            <div class="point-box sbc-point">
+                <h3>SBC Waste Solutions Concerns</h3>
+                <ul>
+                    <li><strong>Equipment Fees:</strong> $289/month (13.3%) in rental charges</li>
+                    <li><strong>Limited Capacity:</strong> Only 14 cu yd weekly despite compactor</li>
+                    <li><strong>Setup Costs:</strong> $1,170 upfront investment required</li>
+                    <li><strong>Contract Lock-in:</strong> 3-year initial term with auto-renewal</li>
+                    <li><strong>Termination Penalty:</strong> 9 months charges + removal fees</li>
+                </ul>
+            </div>
+            
+            <div class="point-box wm-point">
+                <h3>Waste Management Advantages</h3>
+                <ul>
+                    <li><strong>Cost Efficiency:</strong> 50.3% lower monthly cost</li>
+                    <li><strong>Superior Capacity:</strong> 6x more weekly volume capacity</li>
+                    <li><strong>Daily Service:</strong> Maximum convenience for residents</li>
+                    <li><strong>No Equipment Fees:</strong> All-inclusive pricing model</li>
+                    <li><strong>Industry Standard:</strong> Well within $3.60/door benchmark</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="analysis-section">
+        <h2>Cost Per Unit Benchmark Analysis</h2>
+        
+        <table style="margin: 0;">
+            <thead>
+                <tr class="header-row">
+                    <th>Metric</th>
+                    <th>SBC Waste Solutions</th>
+                    <th>Waste Management</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Monthly Cost per Door</strong></td>
+                    <td class="sbc-col">$7.25<br><span class="green-text">Within industry range ($7-15)</span></td>
+                    <td class="wm-col">$3.60<br><span class="green-text">48% below industry minimum</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Industry Benchmark Comparison</strong></td>
+                    <td class="sbc-col">At low end of typical range<br>But includes significant equipment fees</td>
+                    <td class="wm-col">Exceptional value<br>Less than half the industry minimum</td>
+                </tr>
+                <tr>
+                    <td><strong>Service Level for Cost</strong></td>
+                    <td class="sbc-col">Limited capacity despite compactor<br><span class="red-text">Poor value proposition</span></td>
+                    <td class="wm-col">Daily service with ample capacity<br><span class="green-text">Excellent value proposition</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="recommendation">
+        <h2>Recommendation: Waste Management</h2>
+        <p><strong>Waste Management is the overwhelmingly superior choice, offering 50.3% cost savings with 6x more service capacity.</strong></p>
+        
+        <h3>Key Decision Factors:</h3>
+        <ul>
+            <li><strong>Cost Savings:</strong> $13,135 annual savings (50.3% reduction)</li>
+            <li><strong>Per-Unit Cost:</strong> $3.60/door - exceptional value below industry minimums</li>
+            <li><strong>Service Quality:</strong> Daily collection vs. 4x weekly</li>
+            <li><strong>Capacity:</strong> 84 cu yd weekly vs. 14 cu yd (6x more capacity)</li>
+            <li><strong>No Hidden Fees:</strong> All-inclusive pricing vs. $289/month equipment charges</li>
+            <li><strong>Setup Costs:</strong> No upfront fees vs. $1,170 initial investment</li>
+            <li><strong>Operational Simplicity:</strong> Standard containers vs. compactor maintenance</li>
+        </ul>
+
+        <h3>Risk Considerations:</h3>
+        <ul>
+            <li>WM's 5-year initial term is longer than SBC's 3-year term</li>
+            <li>However, the dramatic cost savings and service superiority justify the commitment</li>
+            <li>Daily service provides maximum flexibility for a 300-unit property</li>
+        </ul>
+
+        <h3>Implementation Recommendations:</h3>
+        <ol>
+            <li>Execute Waste Management agreement for August 1, 2025 start</li>
+            <li>Confirm daily service schedule meets property needs</li>
+            <li>Document $13,135 annual savings for Greystar reporting</li>
+            <li>Consider negotiating initial term reduction to 3 years if possible</li>
+        </ol>
+    </div>
+</body>
+</html>
