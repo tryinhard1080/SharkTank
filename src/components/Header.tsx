@@ -33,7 +33,7 @@ const Header: React.FC<HeaderProps> = ({
               <img 
                 src="/image.png" 
                 alt="Advantage Waste Analyzer" 
-                className="h-10 w-auto transition-ease hover:scale-105"
+                className="h-14 w-auto transition-ease hover:scale-105"
               />
             </div>
           </div>
@@ -45,17 +45,6 @@ const Header: React.FC<HeaderProps> = ({
               activeSection={activeSection}
               onSectionChange={onSectionChange}
             />
-          </div>
-
-          {/* Spotlight Search */}
-          <div className="hidden md:flex items-center">
-            <div className="glass-box text-gray-300 px-4 py-2 rounded-lg text-sm flex items-center cursor-pointer hover:bg-white/10 transition-ease group">
-              <Search className="w-4 h-4 mr-2 group-hover:text-bourbon-orange transition-ease" />
-              <span className="mr-3 group-hover:text-white transition-ease">Search contracts, invoices...</span>
-              <div className="bg-gray-700 text-xs px-2 py-1 rounded border border-gray-600 group-hover:border-bourbon-orange transition-ease">
-                ⌘K
-              </div>
-            </div>
           </div>
 
           {/* Mobile menu button */}
