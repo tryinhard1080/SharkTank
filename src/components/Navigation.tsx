@@ -20,8 +20,8 @@ const Navigation: React.FC<NavigationProps> = ({
   mobile = false 
 }) => {
   const baseClasses = mobile 
-    ? "block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
-    : "inline-flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200";
+    ? "block px-3 py-2 rounded-md text-base font-medium transition-ease"
+    : "inline-flex items-center px-3 py-2 rounded-md text-sm font-medium transition-ease";
 
   return (
     <nav className={mobile ? "space-y-1" : "flex space-x-4"}>
@@ -35,8 +35,8 @@ const Navigation: React.FC<NavigationProps> = ({
             onClick={() => onSectionChange(section.id)}
             className={`${baseClasses} ${
               isActive
-                ? 'bg-gray-900 text-white'
-                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                ? 'bg-bourbon-orange text-white'
+                : 'text-gray-300 hover:text-white hover:bg-gray-700'
             }`}
           >
             <Icon size={16} className={mobile ? "inline mr-2" : "mr-2"} />

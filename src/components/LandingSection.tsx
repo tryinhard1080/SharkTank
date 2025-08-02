@@ -109,23 +109,23 @@ const LandingSection: React.FC = () => {
 
         {/* Demo Upload Area */}
         <div className="max-w-2xl mx-auto">
-          <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-dashed border-gray-300 hover:border-green-500 transition-colors duration-300">
+          <div className="bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-8 border-2 border-dashed border-gray-600 hover:border-bourbon-orange transition-ease">
             <div className="text-center">
-              <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">
+              <Upload className="w-12 h-12 text-gray-300 mx-auto mb-4" />
+              <h4 className="text-lg font-semibold text-white mb-2 font-heading">
                 Try the Demo
               </h4>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-300 mb-6 font-body">
                 Upload a sample waste contract or invoice to see the magic happen
               </p>
               
               <div className="space-y-4">
-                <button className="w-full bg-gray-900 text-white py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-200 flex items-center justify-center">
+                <button className="w-full bg-bourbon-orange text-white py-3 px-6 rounded-lg hover:bg-bourbon-orange/80 transition-ease flex items-center justify-center font-medium">
                   <Upload className="w-5 h-5 mr-2" />
                   Choose Files to Upload
                 </button>
                 
-                <div className="text-sm text-gray-500">
+                <div className="text-sm text-gray-400">
                   Supports PDF, JPG, PNG files up to 10MB
                 </div>
               </div>
@@ -136,26 +136,26 @@ const LandingSection: React.FC = () => {
         {/* Benefits Grid */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <div className="bg-white p-6 rounded-xl shadow-lg text-center">
-            <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <TrendingUp className="w-6 h-6 text-green-600" />
+            <div className="w-12 h-12 bg-deep-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <TrendingUp className="w-6 h-6 text-deep-green" />
             </div>
-            <h4 className="text-lg font-semibold text-gray-900 mb-2">Save Time</h4>
+            <h4 className="text-lg font-semibold text-gray-900 mb-2 font-heading">Save Time</h4>
             <p className="text-gray-600">Reduce manual review time from hours to minutes</p>
           </div>
           
           <div className="bg-white p-6 rounded-xl shadow-lg text-center">
-            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <CheckCircle className="w-6 h-6 text-blue-600" />
+            <div className="w-12 h-12 bg-deep-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <CheckCircle className="w-6 h-6 text-deep-green" />
             </div>
-            <h4 className="text-lg font-semibold text-gray-900 mb-2">Ensure Compliance</h4>
+            <h4 className="text-lg font-semibold text-gray-900 mb-2 font-heading">Ensure Compliance</h4>
             <p className="text-gray-600">Automatically flag contract violations and discrepancies</p>
           </div>
           
           <div className="bg-white p-6 rounded-xl shadow-lg text-center">
-            <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <FileText className="w-6 h-6 text-purple-600" />
+            <div className="w-12 h-12 bg-deep-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <FileText className="w-6 h-6 text-deep-green" />
             </div>
-            <h4 className="text-lg font-semibold text-gray-900 mb-2">Track Savings</h4>
+            <h4 className="text-lg font-semibold text-gray-900 mb-2 font-heading">Track Savings</h4>
             <p className="text-gray-600">Identify cost reduction opportunities across properties</p>
           </div>
         </div>

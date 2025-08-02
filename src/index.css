@@ -1,3 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+
+
+@layer base {
+  html {
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+  }
+  
+  body {
+    background-color: #00345B;
+    color: #ffffff;
+  }
+}
+
+@layer components {
+  .transition-ease {
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .glass-box {
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .savings-pulse {
+    animation: pulse-bourbon 1s ease-in-out;
+  }
+  
+  .drawer {
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer utilities {
+  *:focus-visible {
+    outline: 2px solid #B87024;
+    outline-offset: 2px;
+  }
+}

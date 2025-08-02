@@ -56,7 +56,7 @@ const KPICard: React.FC<KPICardProps> = ({
   }, [animate, isVisible, value, unit]);
 
   return (
-    <div className={`bg-white rounded-xl shadow-lg p-6 transition-all duration-700 transform ${
+    <div className={`bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-6 transition-all duration-700 transform ${
       isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
     } hover:shadow-xl hover:scale-105`}>
       <div className="flex items-center justify-between mb-4">
@@ -66,15 +66,15 @@ const KPICard: React.FC<KPICardProps> = ({
       </div>
       
       <div className="mb-2">
-        <div className="text-3xl font-bold text-gray-900">
+        <div className="text-3xl font-bold text-white">
           {displayValue}
         </div>
-        <div className="text-sm font-medium text-gray-600 mt-1">
+        <div className="text-sm font-medium text-gray-300 mt-1">
           {title}
         </div>
       </div>
       
-      <div className="text-sm text-gray-500">
+      <div className="text-sm text-gray-400">
         {trend}
       </div>
     </div>

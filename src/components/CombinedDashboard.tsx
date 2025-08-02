@@ -103,8 +103,8 @@ const CombinedDashboard: React.FC = () => {
       value: 22.5,
       suffix: '%',
       icon: TrendingDown,
-      color: 'text-green-600',
-      bgColor: 'bg-green-100',
+      color: 'text-deep-green',
+      bgColor: 'bg-deep-green/10',
       trend: 'Across analyzed properties',
       delay: 200
     },
@@ -113,8 +113,8 @@ const CombinedDashboard: React.FC = () => {
       value: 8750,
       prefix: '$',
       icon: DollarSign,
-      color: 'text-green-600',
-      bgColor: 'bg-green-100',
+      color: 'text-deep-green',
+      bgColor: 'bg-deep-green/10',
       trend: 'Identified opportunities',
       delay: 400
     },
@@ -122,8 +122,8 @@ const CombinedDashboard: React.FC = () => {
       title: 'Properties Analyzed',
       value: 7,
       icon: Building,
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-100',
+      color: 'text-deep-green',
+      bgColor: 'bg-deep-green/10',
       trend: 'Contract & invoice review complete',
       delay: 600
     },
@@ -273,8 +273,8 @@ const CombinedDashboard: React.FC = () => {
   };
 
   const getSavingsColor = (savingsNum: number) => {
-    if (savingsNum === 0) return 'text-gray-500';
-    return 'text-green-600 font-semibold';
+    if (savingsNum === 0) return 'text-gray-400';
+    return 'text-deep-green font-semibold';
   };
 
   const formatDate = (dateString: string) => {
@@ -297,7 +297,7 @@ const CombinedDashboard: React.FC = () => {
   const propertiesWithSavings = propertyData.filter(p => p.savingsNum > 0).length;
 
   return (
-    <div className="py-8 px-4 sm:px-6 lg:px-8 bg-gray-50 min-h-screen">
+    <div className="py-8 px-4 sm:px-6 lg:px-8 bg-dark-navy min-h-screen">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div 
@@ -306,10 +306,10 @@ const CombinedDashboard: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">
+          <h2 className="text-3xl font-bold text-white mb-2 font-heading">
             Comprehensive Waste Management Dashboard
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-300 font-body">
             Complete analysis of property portfolio contracts, savings opportunities, and notice periods
           </p>
         </motion.div>
@@ -329,10 +329,10 @@ const CombinedDashboard: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.8 }}
         >
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-xl font-semibold text-gray-900">
+            <h3 className="text-xl font-semibold text-white font-heading">
               Property Contract Analysis
             </h3>
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-gray-400">
               {propertyData.length} properties analyzed
             </div>
           </div>
@@ -341,84 +341,84 @@ const CombinedDashboard: React.FC = () => {
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                     Property
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                     Contract Period
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                     Monthly Rate
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                     Service Details
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                     Notice Date
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                     Savings Found
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                     Status
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="divide-y divide-gray-700">
                 {propertyData.slice(0, visibleRows).map((property, index) => {
                   const daysUntilNotice = getDaysUntilNotice(property.noticePeriod);
                   return (
                     <motion.tr 
                       key={index} 
-                      className="hover:bg-gray-50 transition-colors duration-150"
+                      className="hover:bg-white/5 transition-ease"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 2 + index * 0.1, duration: 0.4 }}
                     >
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
-                          <Building className="w-5 h-5 text-gray-400 mr-3" />
-                          <span className="text-sm font-medium text-gray-900">
+                          <Building className="w-5 h-5 text-gray-500 mr-3" />
+                          <span className="text-sm font-medium text-white">
                             {property.property}
                           </span>
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center text-sm text-gray-900">
-                          <Calendar className="w-4 h-4 text-gray-400 mr-2" />
+                        <div className="flex items-center text-sm text-gray-300">
+                          <Calendar className="w-4 h-4 text-gray-500 mr-2" />
                           <div>
                             <div>{formatDate(property.contractStart)}</div>
-                            <div className="text-xs text-gray-500">
+                            <div className="text-xs text-gray-400">
                               to {formatDate(property.contractEnd)}
                             </div>
                           </div>
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <span className="text-sm font-semibold text-gray-900">
+                        <span className="text-sm font-semibold text-white">
                           {property.monthlyRate}
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center text-sm text-gray-900">
-                          <Truck className="w-4 h-4 text-gray-400 mr-2" />
+                        <div className="flex items-center text-sm text-gray-300">
+                          <Truck className="w-4 h-4 text-gray-500 mr-2" />
                           <div>
                             <div>{property.frequency}</div>
-                            <div className="text-xs text-gray-500">{property.binSize}</div>
+                            <div className="text-xs text-gray-400">{property.binSize}</div>
                           </div>
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center text-sm">
-                          <Bell className="w-4 h-4 text-gray-400 mr-2" />
+                          <Bell className="w-4 h-4 text-gray-500 mr-2" />
                           <div>
-                            <div className="text-gray-900">{formatDate(property.noticePeriod)}</div>
+                            <div className="text-gray-300">{formatDate(property.noticePeriod)}</div>
                             <div className={`text-xs ${
                               daysUntilNotice < 30 
                                 ? 'text-red-600' 
                                 : daysUntilNotice < 60 
                                 ? 'text-orange-600' 
-                                : 'text-gray-500'
+                                : 'text-gray-400'
                             }`}>
                               {daysUntilNotice > 0 ? `${daysUntilNotice} days` : 'Past due'}
                             </div>
@@ -429,7 +429,7 @@ const CombinedDashboard: React.FC = () => {
                         <div className={`text-sm ${getSavingsColor(property.savingsNum)}`}>
                           {property.savingsFound}
                           {property.savingsNum > 0 && (
-                            <div className="text-xs text-gray-500">
+                            <div className="text-xs text-gray-400">
                               {Math.round((property.savingsNum / property.monthlyRateNum) * 100)}% reduction
                             </div>
                           )}
@@ -448,30 +448,30 @@ const CombinedDashboard: React.FC = () => {
           </div>
 
           {/* Summary Statistics */}
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-4 gap-4 pt-4 border-t border-gray-200">
-            <div className="text-center p-3 bg-blue-50 rounded-lg">
-              <div className="text-lg font-bold text-blue-600">
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-4 gap-4 pt-4 border-t border-gray-700">
+            <div className="text-center p-3 bg-deep-green/10 rounded-lg">
+              <div className="text-lg font-bold text-deep-green">
                 {propertyData.length}
               </div>
-              <div className="text-xs text-gray-600">Total Properties</div>
+              <div className="text-xs text-gray-400">Total Properties</div>
             </div>
-            <div className="text-center p-3 bg-green-50 rounded-lg">
-              <div className="text-lg font-bold text-green-600">
+            <div className="text-center p-3 bg-deep-green/10 rounded-lg">
+              <div className="text-lg font-bold text-deep-green">
                 ${totalSavings.toLocaleString()}
               </div>
-              <div className="text-xs text-gray-600">Monthly Savings Found</div>
+              <div className="text-xs text-gray-400">Monthly Savings Found</div>
             </div>
-            <div className="text-center p-3 bg-purple-50 rounded-lg">
-              <div className="text-lg font-bold text-purple-600">
+            <div className="text-center p-3 bg-deep-green/10 rounded-lg">
+              <div className="text-lg font-bold text-deep-green">
                 {propertiesWithSavings}/{propertyData.length}
               </div>
-              <div className="text-xs text-gray-600">Properties w/ Savings</div>
+              <div className="text-xs text-gray-400">Properties w/ Savings</div>
             </div>
             <div className="text-center p-3 bg-orange-50 rounded-lg">
               <div className="text-lg font-bold text-orange-600">
                 {propertyData.filter(p => p.status === 'Expiring Soon').length}
               </div>
-              <div className="text-xs text-gray-600">Expiring Soon</div>
+              <div className="text-xs text-gray-400">Expiring Soon</div>
             </div>
           </div>
         </motion.div>
@@ -483,42 +483,42 @@ const CombinedDashboard: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.2 }}
         >
-          <h3 className="text-xl font-semibold text-gray-900 mb-6">
+          <h3 className="text-xl font-semibold text-gray-900 mb-6 font-heading">
             Analysis Status
           </h3>
           
           <div className="space-y-4">
-            <div className="flex items-center justify-between p-4 bg-green-50 rounded-lg">
+            <div className="flex items-center justify-between p-4 bg-deep-green/10 rounded-lg">
               <div className="flex items-center">
-                <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                <CheckCircle className="w-5 h-5 text-deep-green mr-3" />
                 <div>
                   <div className="font-medium text-gray-900">Contract Analysis Complete</div>
-                  <div className="text-sm text-gray-500">{propertyData.length} properties processed</div>
+                  <div className="text-sm text-gray-600">{propertyData.length} properties processed</div>
                 </div>
               </div>
-              <div className="text-sm text-green-600 font-medium">✓ Complete</div>
+              <div className="text-sm text-deep-green font-medium">✓ Complete</div>
             </div>
             
-            <div className="flex items-center justify-between p-4 bg-green-50 rounded-lg">
+            <div className="flex items-center justify-between p-4 bg-deep-green/10 rounded-lg">
               <div className="flex items-center">
-                <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                <CheckCircle className="w-5 h-5 text-deep-green mr-3" />
                 <div>
                   <div className="font-medium text-gray-900">Invoice Verification Complete</div>
-                  <div className="text-sm text-gray-500">Cross-referenced with contract terms</div>
+                  <div className="text-sm text-gray-600">Cross-referenced with contract terms</div>
                 </div>
               </div>
-              <div className="text-sm text-green-600 font-medium">✓ Complete</div>
+              <div className="text-sm text-deep-green font-medium">✓ Complete</div>
             </div>
             
-            <div className="flex items-center justify-between p-4 bg-blue-50 rounded-lg">
+            <div className="flex items-center justify-between p-4 bg-bourbon-orange/10 rounded-lg">
               <div className="flex items-center">
-                <Clock className="w-5 h-5 text-blue-500 mr-3" />
+                <Clock className="w-5 h-5 text-bourbon-orange mr-3" />
                 <div>
                   <div className="font-medium text-gray-900">Ready for Contract Renegotiation</div>
-                  <div className="text-sm text-gray-500">Savings opportunities identified</div>
+                  <div className="text-sm text-gray-600">Savings opportunities identified</div>
                 </div>
               </div>
-              <div className="text-sm text-blue-600 font-medium">Ready</div>
+              <div className="text-sm text-bourbon-orange font-medium">Ready</div>
             </div>
           </div>
         </motion.div>

@@ -39,9 +39,9 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-dark-navy">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-200">
+      <header className="bg-dark-navy shadow-lg border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
@@ -49,7 +49,7 @@ function App() {
                 <img 
                   src="/image.png" 
                   alt="Advantage Waste Analyzer" 
-                  className="h-48 w-auto"
+                  className="h-16 w-auto"
                 />
               </div>
             </div>
@@ -63,11 +63,19 @@ function App() {
               />
             </div>
 
+            {/* Spotlight Search */}
+            <div className="hidden md:flex items-center">
+              <div className="bg-gray-800 text-gray-300 px-4 py-2 rounded-lg text-sm flex items-center">
+                <span className="mr-2">⌘+K</span>
+                <span>Search contracts, invoices...</span>
+              </div>
+            </div>
+
             {/* Mobile menu button */}
             <div className="md:hidden">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-gray-600 hover:text-gray-900 focus:outline-none focus:text-gray-900"
+                className="text-gray-300 hover:text-white focus:outline-none transition-ease"
               >
                 {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -78,7 +86,7 @@ function App() {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-dark-navy border-t border-gray-800">
               <Navigation 
                 sections={sections}
                 activeSection={activeSection}
