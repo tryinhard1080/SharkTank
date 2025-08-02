@@ -273,7 +273,7 @@ const CombinedDashboard: React.FC = () => {
   };
 
   const getSavingsColor = (savingsNum: number) => {
-    if (savingsNum === 0) return 'text-gray-400';
+    if (savingsNum === 0) return 'text-gray-800';
     return 'text-deep-green font-semibold';
   };
 
@@ -329,10 +329,10 @@ const CombinedDashboard: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.8 }}
         >
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-xl font-semibold text-white font-heading">
+            <h3 className="text-xl font-semibold text-gray-900 font-heading">
               Property Contract Analysis
             </h3>
-            <div className="text-sm text-gray-200">
+            <div className="text-sm text-gray-700">
               {propertyData.length} properties analyzed
             </div>
           </div>
@@ -364,61 +364,61 @@ const CombinedDashboard: React.FC = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 {propertyData.slice(0, visibleRows).map((property, index) => {
                   const daysUntilNotice = getDaysUntilNotice(property.noticePeriod);
                   return (
                     <motion.tr 
                       key={index} 
-                      className="hover:bg-white/5 transition-ease"
+                      className="hover:bg-gray-50 transition-ease"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 2 + index * 0.1, duration: 0.4 }}
                     >
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
-                          <Building className="w-5 h-5 text-gray-500 mr-3" />
-                          <span className="text-sm font-medium text-white">
+                          <Building className="w-5 h-5 text-gray-600 mr-3" />
+                          <span className="text-sm font-medium text-gray-900">
                             {property.property}
                           </span>
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center text-sm text-gray-200">
-                          <Calendar className="w-4 h-4 text-gray-500 mr-2" />
+                        <div className="flex items-center text-sm text-gray-800">
+                          <Calendar className="w-4 h-4 text-gray-600 mr-2" />
                           <div>
                             <div>{formatDate(property.contractStart)}</div>
-                            <div className="text-xs text-gray-300">
+                            <div className="text-xs text-gray-700">
                               to {formatDate(property.contractEnd)}
                             </div>
                           </div>
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <span className="text-sm font-semibold text-white">
+                        <span className="text-sm font-semibold text-gray-900">
                           {property.monthlyRate}
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center text-sm text-gray-200">
-                          <Truck className="w-4 h-4 text-gray-500 mr-2" />
+                        <div className="flex items-center text-sm text-gray-800">
+                          <Truck className="w-4 h-4 text-gray-600 mr-2" />
                           <div>
                             <div>{property.frequency}</div>
-                            <div className="text-xs text-gray-300">{property.binSize}</div>
+                            <div className="text-xs text-gray-700">{property.binSize}</div>
                           </div>
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center text-sm">
-                          <Bell className="w-4 h-4 text-gray-500 mr-2" />
+                          <Bell className="w-4 h-4 text-gray-600 mr-2" />
                           <div>
-                            <div className="text-gray-200">{formatDate(property.noticePeriod)}</div>
+                            <div className="text-gray-800">{formatDate(property.noticePeriod)}</div>
                             <div className={`text-xs ${
                               daysUntilNotice < 30 
                                 ? 'text-red-600' 
                                 : daysUntilNotice < 60 
                                 ? 'text-orange-600' 
-                                : 'text-gray-300'
+                                : 'text-gray-700'
                             }`}>
                               {daysUntilNotice > 0 ? `${daysUntilNotice} days` : 'Past due'}
                             </div>
@@ -429,7 +429,7 @@ const CombinedDashboard: React.FC = () => {
                         <div className={`text-sm ${getSavingsColor(property.savingsNum)}`}>
                           {property.savingsFound}
                           {property.savingsNum > 0 && (
-                            <div className="text-xs text-gray-300">
+                            <div className="text-xs text-gray-700">
                               {Math.round((property.savingsNum / property.monthlyRateNum) * 100)}% reduction
                             </div>
                           )}
@@ -459,19 +459,19 @@ const CombinedDashboard: React.FC = () => {
               <div className="text-lg font-bold text-deep-green">
                 ${totalSavings.toLocaleString()}
               </div>
-              <div className="text-xs text-gray-200">Monthly Savings Found</div>
+              <div className="text-xs text-gray-700">Monthly Savings Found</div>
             </div>
             <div className="text-center p-3 bg-deep-green/10 rounded-lg">
               <div className="text-lg font-bold text-deep-green">
                 {propertiesWithSavings}/{propertyData.length}
               </div>
-              <div className="text-xs text-gray-200">Properties w/ Savings</div>
+              <div className="text-xs text-gray-700">Properties w/ Savings</div>
             </div>
             <div className="text-center p-3 bg-orange-50 rounded-lg">
               <div className="text-lg font-bold text-orange-600">
                 {propertyData.filter(p => p.status === 'Expiring Soon').length}
               </div>
-              <div className="text-xs text-gray-200">Expiring Soon</div>
+              <div className="text-xs text-gray-700">Expiring Soon</div>
             </div>
           </div>
         </motion.div>
@@ -493,7 +493,7 @@ const CombinedDashboard: React.FC = () => {
                 <CheckCircle className="w-5 h-5 text-deep-green mr-3" />
                 <div>
                   <div className="font-medium text-gray-900">Contract Analysis Complete</div>
-                  <div className="text-sm text-gray-600">{propertyData.length} properties processed</div>
+                  <div className="text-sm text-gray-700">{propertyData.length} properties processed</div>
                 </div>
               </div>
               <div className="text-sm text-deep-green font-medium">✓ Complete</div>
@@ -504,7 +504,7 @@ const CombinedDashboard: React.FC = () => {
                 <CheckCircle className="w-5 h-5 text-deep-green mr-3" />
                 <div>
                   <div className="font-medium text-gray-900">Invoice Verification Complete</div>
-                  <div className="text-sm text-gray-600">Cross-referenced with contract terms</div>
+                  <div className="text-sm text-gray-700">Cross-referenced with contract terms</div>
                 </div>
               </div>
               <div className="text-sm text-deep-green font-medium">✓ Complete</div>
@@ -515,7 +515,7 @@ const CombinedDashboard: React.FC = () => {
                 <Clock className="w-5 h-5 text-bourbon-orange mr-3" />
                 <div>
                   <div className="font-medium text-gray-900">Ready for Contract Renegotiation</div>
-                  <div className="text-sm text-gray-600">Savings opportunities identified</div>
+                  <div className="text-sm text-gray-700">Savings opportunities identified</div>
                 </div>
               </div>
               <div className="text-sm text-bourbon-orange font-medium">Ready</div>
