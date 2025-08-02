@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { FileText, BarChart3, Database, Menu, X, Scan } from 'lucide-react';
 import LandingSection from './components/LandingSection';
-import Dashboard from './components/Dashboard';
+import CombinedDashboard from './components/CombinedDashboard';
 import DataWarehouse from './components/DataWarehouse';
-import FullScreenDashboard from './components/FullScreenDashboard';
 import ScannerDemo from './components/ScannerDemo';
 import InvoiceDemo from './components/InvoiceDemo';
 import PropertyAnalysisReport from './components/PropertyAnalysisReport';
@@ -17,9 +16,8 @@ function App() {
     { id: 'landing', name: 'Process Overview', icon: FileText },
     { id: 'scanner', name: 'Contract Demo', icon: Scan },
     { id: 'invoice', name: 'Invoice Demo', icon: Scan },
-    { id: 'dashboard', name: 'Dashboard', icon: BarChart3 },
+    { id: 'dashboard', name: 'Combined Dashboard', icon: BarChart3 },
     { id: 'warehouse', name: 'Data Warehouse', icon: Database },
-    { id: 'fullscreen', name: 'Full Dashboard', icon: BarChart3 },
     { id: 'report', name: 'Property Report', icon: FileText }
   ];
 
@@ -30,11 +28,9 @@ function App() {
       case 'invoice':
         return <InvoiceDemo />;
       case 'dashboard':
-        return <Dashboard />;
+        return <CombinedDashboard />;
       case 'warehouse':
         return <DataWarehouse />;
-      case 'fullscreen':
-        return <FullScreenDashboard />;
       case 'report':
         return <PropertyAnalysisReport />;
       default:
