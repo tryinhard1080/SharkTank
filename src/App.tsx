@@ -49,7 +49,7 @@ function App() {
                 <img 
                   src="/image.png" 
                   alt="Advantage Waste Analyzer" 
-                  className="h-12 w-auto"
+                  className="h-48 w-auto"
                 />
               </div>
             </div>
