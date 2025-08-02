@@ -447,10 +447,10 @@ const DataWarehouse: React.FC = () => {
 
           <div className="mt-6 flex items-center justify-between">
             <div className="text-sm text-gray-700">
-              Showing 5 properties with total monthly spend of ${sortedProperties.reduce((sum, p) => sum + p.monthlySpend, 0).toLocaleString()}
+              Showing {totalProperties} properties with total monthly spend of ${totalMonthlySpend.toLocaleString()}
             </div>
             <div className="text-sm text-green-600 font-medium">
-              Total savings opportunity: ${sortedProperties.reduce((sum, p) => sum + p.savingsOpportunity, 0).toLocaleString()}/month
+              Total savings opportunity: ${totalSavingsOpportunity.toLocaleString()}/month
             </div>
           </div>
         </div>
