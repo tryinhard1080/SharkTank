@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Database, Building, TrendingUp, Filter, Search } from 'lucide-react';
+import { ArrowRight, Database, Building, TrendingUp, Filter, Search, FileText } from 'lucide-react';
 
 const DataWarehouse: React.FC = () => {
   const [flowAnimation, setFlowAnimation] = useState(false);
@@ -13,7 +13,9 @@ const DataWarehouse: React.FC = () => {
       contractExpiration: '2024-12-31',
       savingsOpportunity: 580,
       units: 120,
-      trend: 'up'
+      currentHauler: 'Republic Services',
+      contractLoaded: true,
+      contractFilePath: '/contracts/oakwood_apartments_contract.pdf'
     },
     {
       property: 'Riverside Commons',
@@ -21,7 +23,9 @@ const DataWarehouse: React.FC = () => {
       contractExpiration: '2024-06-14',
       savingsOpportunity: 340,
       units: 85,
-      trend: 'down'
+      currentHauler: 'Waste Management',
+      contractLoaded: true,
+      contractFilePath: '/contracts/riverside_commons_contract.pdf'
     },
     {
       property: 'Metro Heights',
@@ -29,7 +33,9 @@ const DataWarehouse: React.FC = () => {
       contractExpiration: '2025-02-28',
       savingsOpportunity: 750,
       units: 150,
-      trend: 'up'
+      currentHauler: 'GFL Environmental',
+      contractLoaded: false,
+      contractFilePath: ''
     },
     {
       property: 'Garden Vista',
@@ -37,7 +43,9 @@ const DataWarehouse: React.FC = () => {
       contractExpiration: '2024-08-15',
       savingsOpportunity: 210,
       units: 75,
-      trend: 'stable'
+      currentHauler: 'Republic Services',
+      contractLoaded: true,
+      contractFilePath: '/contracts/garden_vista_contract.pdf'
     },
     {
       property: 'Sunset Towers',
@@ -45,7 +53,9 @@ const DataWarehouse: React.FC = () => {
       contractExpiration: '2024-11-30',
       savingsOpportunity: 650,
       units: 135,
-      trend: 'up'
+      currentHauler: 'Waste Management',
+      contractLoaded: true,
+      contractFilePath: '/contracts/sunset_towers_contract.pdf'
     }
   ];
 
@@ -63,6 +73,11 @@ const DataWarehouse: React.FC = () => {
     }
   };
 
+  const handleViewContract = (property: string, filePath: string) => {
+    // Demo function - in production this would open the contract document
+    alert(`Opening contract for ${property}: ${filePath}`);
+  };
+
   const sortedProperties = [...properties].sort((a, b) => {
     const aVal = a[sortField as keyof typeof a];
     const bVal = b[sortField as keyof typeof b];
@@ -78,16 +93,6 @@ const DataWarehouse: React.FC = () => {
       : (bVal as number) - (aVal as number);
   });
 
-  const getTrendIcon = (trend: string) => {
-    switch (trend) {
-      case 'up':
-        return <TrendingUp className="w-4 h-4 text-green-500" />;
-      case 'down':
-        return <TrendingUp className="w-4 h-4 text-red-500 transform rotate-180" />;
-      default:
-        return <div className="w-4 h-4 bg-gray-400 rounded-full" />;
-    }
-  };
 
   const FlowArrow: React.FC<{ delay: number }> = ({ delay }) => (
     <div 
@@ -211,8 +216,8 @@ const DataWarehouse: React.FC = () => {
                     Units
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Trend
-                  </th>
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                    onClick={() => handleSort('currentHauler')}
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
@@ -221,7 +226,10 @@ const DataWarehouse: React.FC = () => {
                     key={index} 
                     className="hover:bg-gray-50 transition-colors duration-150 cursor-pointer"
                   >
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    Current Hauler
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Contract
                       <div className="text-sm font-medium text-gray-900">
                         {property.property}
                       </div>
@@ -247,7 +255,22 @@ const DataWarehouse: React.FC = () => {
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      {getTrendIcon(property.trend)}
+                      <div className="text-sm text-gray-900">
+                        {property.currentHauler}
+                      </div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {property.contractLoaded ? (
+                        <button
+                          onClick={() => handleViewContract(property.property, property.contractFilePath)}
+                          className="text-blue-600 hover:text-blue-800 transition-colors duration-200"
+                          title="View Contract"
+                        >
+                          <FileText className="w-5 h-5" />
+                        </button>
+                      ) : (
+                        <FileText className="w-5 h-5 text-gray-300" title="Contract not available" />
+                      )}
                     </td>
                   </tr>
                 ))}
