@@ -440,7 +440,7 @@ const CombinedDashboard: React.FC = () => {
                           {property.status}
                         </span>
                       </td>
-                    </tr>
+                    </motion.tr>
                   );
                 })}
               </tbody>
