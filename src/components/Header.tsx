@@ -1,83 +1,93 @@
 import React from 'react';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X, Search } from 'lucide-react';
+import Navigation from './Navigation';
 
-interface HeaderProps {
-  isMenuOpen: boolean;
-  setIsMenuOpen: (isOpen: boolean) => void;
+interface Section {
+  id: string;
+  name: string;
+  icon: React.ComponentType<{ size?: number; className?: string }>;
 }
 
-export default function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
-  const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Features', href: '#features' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
-  ];
+interface HeaderProps {
+  sections: Section[];
+  activeSection: string;
+  onSectionChange: (section: string) => void;
+  mobileMenuOpen: boolean;
+  setMobileMenuOpen: (isOpen: boolean) => void;
+}
 
+const Header: React.FC<HeaderProps> = ({
+  sections,
+  activeSection,
+  onSectionChange,
+  mobileMenuOpen,
+  setMobileMenuOpen
+}) => {
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+    <header className="bg-dark-navy shadow-lg border-b border-gray-800 fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-              <Zap className="w-5 h-5 text-white" />
+          <div className="flex items-center">
+            <div className="flex-shrink-0">
+              <img 
+                src="/image.png" 
+                alt="Advantage Waste Analyzer" 
+                className="h-10 w-auto transition-ease hover:scale-105"
+              />
             </div>
-            <span className="text-xl font-bold text-gray-900">StartKit</span>
+          </div>
+          
+          {/* Desktop Navigation */}
+          <div className="hidden md:block">
+            <Navigation 
+              sections={sections}
+              activeSection={activeSection}
+              onSectionChange={onSectionChange}
+            />
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
-              >
-                {item.name}
-              </a>
-            ))}
-          </nav>
-
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center space-x-4">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200">
-              Get Started
-            </button>
+          {/* Spotlight Search */}
+          <div className="hidden md:flex items-center">
+            <div className="glass-box text-gray-300 px-4 py-2 rounded-lg text-sm flex items-center cursor-pointer hover:bg-white/10 transition-ease group">
+              <Search className="w-4 h-4 mr-2 group-hover:text-bourbon-orange transition-ease" />
+              <span className="mr-3 group-hover:text-white transition-ease">Search contracts, invoices...</span>
+              <div className="bg-gray-700 text-xs px-2 py-1 rounded border border-gray-600 group-hover:border-bourbon-orange transition-ease">
+                ⌘K
+              </div>
+            </div>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="text-gray-300 hover:text-white focus-visible:outline-bourbon-orange transition-ease"
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
-            <div className="flex flex-col space-y-3">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 w-full mt-4">
-                Get Started
-              </button>
+        {mobileMenuOpen && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-dark-navy border-t border-gray-800">
+              <Navigation 
+                sections={sections}
+                activeSection={activeSection}
+                onSectionChange={(section) => {
+                  onSectionChange(section);
+                  setMobileMenuOpen(false);
+                }}
+                mobile
+              />
             </div>
           </div>
         )}
       </div>
     </header>
   );
-}
+};
+
+export default Header;
