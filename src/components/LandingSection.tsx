@@ -42,7 +42,7 @@ const LandingSection: React.FC = () => {
   }, []);
 
   return (
-    <div className="py-16 px-4 sm:px-6 lg:px-8">
+    <div className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-16">
@@ -109,13 +109,13 @@ const LandingSection: React.FC = () => {
 
         {/* Demo Upload Area */}
         <div className="max-w-2xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-8 border-2 border-dashed border-gray-600 hover:border-bourbon-orange transition-ease">
+          <div className="bg-gray-50 rounded-xl shadow-lg p-8 border-2 border-dashed border-gray-300 hover:border-bourbon-orange transition-ease">
             <div className="text-center">
-              <Upload className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-              <h4 className="text-lg font-semibold text-white mb-2 font-heading">
+              <Upload className="w-12 h-12 text-gray-500 mx-auto mb-4" />
+              <h4 className="text-lg font-semibold text-gray-900 mb-2 font-heading">
                 Try the Demo
               </h4>
-              <p className="text-gray-300 mb-6 font-body">
+              <p className="text-gray-600 mb-6 font-body">
                 Upload a sample waste contract or invoice to see the magic happen
               </p>
               
@@ -125,7 +125,7 @@ const LandingSection: React.FC = () => {
                   Choose Files to Upload
                 </button>
                 
-                <div className="text-sm text-gray-400">
+                <div className="text-sm text-gray-500">
                   Supports PDF, JPG, PNG files up to 10MB
                 </div>
               </div>
