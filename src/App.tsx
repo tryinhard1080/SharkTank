@@ -46,9 +46,11 @@ function App() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <h1 className="text-2xl font-bold text-gray-900">
-                  Advantage Waste Analyzer
-                </h1>
+                <img 
+                  src="/image.png" 
+                  alt="Advantage Waste Analyzer" 
+                  className="h-8 w-auto"
+                />
               </div>
             </div>
             
