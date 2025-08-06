@@ -197,7 +197,7 @@ const ScannerDemo: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-dark-navy py-12 px-4 sm:px-6 lg:px-8 relative">
+    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div 
@@ -262,17 +262,17 @@ const ScannerDemo: React.FC = () => {
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="glass-box rounded-2xl shadow-xl p-12 border-2 border-dashed border-gray-600 hover:border-bourbon-orange transition-ease">
+              <div className="bg-white rounded-2xl shadow-xl p-12 border-2 border-dashed border-gray-300 hover:border-bourbon-orange transition-ease">
                 <div className="text-center">
                   {/* Lottie Animation Placeholder */}
                   <div className="w-24 h-24 mx-auto mb-6 bg-bourbon-orange/20 rounded-full flex items-center justify-center">
                     <div className="w-16 h-16 border-4 border-bourbon-orange border-t-transparent rounded-full animate-spin"></div>
                     {/* TODO: Replace with Lottie animation player loading "doc-scan.json" */}
                   </div>
-                  <h3 className="text-2xl font-semibold text-white mb-4 font-heading">
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-4 font-heading">
                     AI Document Analysis Ready
                   </h3>
-                  <p className="text-gray-300 mb-8 font-body">
+                  <p className="text-gray-600 mb-8 font-body">
                     Advanced OCR and AI parsing will extract contract terms and identify optimization opportunities
                   </p>
                   
@@ -305,7 +305,7 @@ const ScannerDemo: React.FC = () => {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="glass-box rounded-2xl shadow-xl p-12 text-center">
+              <div className="bg-white rounded-2xl shadow-xl p-12 text-center">
                 <motion.div
                   className="w-24 h-24 mx-auto mb-6 bg-bourbon-orange/20 rounded-full flex items-center justify-center"
                   animate={{ rotate: 360 }}
@@ -314,7 +314,7 @@ const ScannerDemo: React.FC = () => {
                   <FileText className="w-12 h-12 text-bourbon-orange" />
                 </motion.div>
                 
-                <h3 className="text-2xl font-semibold text-white mb-4 font-heading">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4 font-heading">
                   Scanning Document...
                 </h3>
                 
@@ -327,7 +327,7 @@ const ScannerDemo: React.FC = () => {
                   />
                 </div>
                 
-                <p className="text-gray-300">
+                <p className="text-gray-600">
                   Parsing contract... extracting key terms and costs ({scanProgress}%)
                 </p>
               </div>
@@ -344,10 +344,10 @@ const ScannerDemo: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="glass-box rounded-2xl shadow-xl p-8">
+              <div className="bg-white rounded-2xl shadow-xl p-8">
                 <div className="flex items-center mb-8">
-                  <CheckCircle className="w-8 h-8 text-deep-green mr-3" />
-                  <h3 className="text-2xl font-semibold text-white font-heading">
+                  <CheckCircle className="w-8 h-8 text-green-600 mr-3" />
+                  <h3 className="text-2xl font-semibold text-gray-900 font-heading">
                     Contract Data Extracted
                   </h3>
                   <button
@@ -362,8 +362,8 @@ const ScannerDemo: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   {/* Left column: PDF Viewer placeholder */}
                   <div className="space-y-4">
-                    <h4 className="text-lg font-semibold text-white font-heading">Document Preview</h4>
-                    <div className="bg-white/5 border border-white/10 rounded-xl p-6 h-96 flex items-center justify-center">
+                    <h4 className="text-lg font-semibold text-gray-900 font-heading">Document Preview</h4>
+                    <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 h-96 flex items-center justify-center">
                       <div className="text-center">
                         <FileText className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                         <p className="text-gray-400">PDF Viewer Integration</p>
@@ -374,27 +374,27 @@ const ScannerDemo: React.FC = () => {
 
                   {/* Right column: Clause list with badges */}
                   <div className="space-y-4">
-                    <h4 className="text-lg font-semibold text-white font-heading">Extracted Contract Terms</h4>
+                    <h4 className="text-lg font-semibold text-gray-900 font-heading">Extracted Contract Terms</h4>
                     <div className="space-y-3">
                       {parsedFields.slice(0, visibleFields).map((field, index) => {
                         const Icon = field.icon;
                         return (
                           <motion.div
                             key={index}
-                            className="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-ease"
+                            className="flex items-center justify-between p-4 bg-gray-50 border border-gray-200 rounded-xl hover:bg-gray-100 transition-ease"
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: index * 0.1, duration: 0.4 }}
                           >
                             <div className="flex items-center flex-1">
-                              <div className="bg-white/10 p-3 rounded-lg mr-4">
-                                <Icon className="w-5 h-5 text-bourbon-orange" />
+                              <div className="bg-gray-200 p-3 rounded-lg mr-4">
+                                <Icon className="w-5 h-5 text-gray-600" />
                               </div>
                               <div className="flex-1">
-                                <div className="text-sm font-medium text-gray-300">
+                                <div className="text-sm font-medium text-gray-600">
                                   {field.label}
                                 </div>
-                                <div className="text-lg font-semibold text-white">
+                                <div className="text-lg font-semibold text-gray-900">
                                   {field.value}
                                 </div>
                               </div>
@@ -429,7 +429,7 @@ const ScannerDemo: React.FC = () => {
               {/* Slide-over Panel */}
               <motion.div
                 id="diffPanel"
-                className="fixed right-0 top-0 h-full w-full max-w-md bg-dark-navy border-l border-gray-700 z-50 overflow-y-auto"
+                className="fixed right-0 top-0 h-full w-full max-w-md bg-white border-l border-gray-200 z-50 overflow-y-auto"
                 initial={{ x: '100%' }}
                 animate={{ x: 0 }}
                 exit={{ x: '100%' }}
@@ -437,37 +437,37 @@ const ScannerDemo: React.FC = () => {
               >
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-xl font-semibold text-white font-heading">AI Analysis Summary</h3>
+                    <h3 className="text-xl font-semibold text-gray-900 font-heading">AI Analysis Summary</h3>
                     <button
                       onClick={() => setShowDiffPanel(false)}
-                      className="text-gray-400 hover:text-white transition-ease"
+                      className="text-gray-400 hover:text-gray-600 transition-ease"
                     >
                       <X className="w-6 h-6" />
                     </button>
                   </div>
                   
                   <div className="space-y-6">
-                    <div className="glass-box p-4 rounded-lg">
+                    <div className="bg-gray-50 border border-gray-200 p-4 rounded-lg">
                       <h4 className="font-semibold text-bourbon-orange mb-2">Key Findings</h4>
-                      <ul className="text-sm text-gray-300 space-y-2">
+                      <ul className="text-sm text-gray-700 space-y-2">
                         <li>• Termination clause requires 30-day notice (industry standard: 60 days)</li>
                         <li>• Annual price increase of 3.5% exceeds market average of 2.8%</li>
                         <li>• Current hauling frequency may be optimized</li>
                       </ul>
                     </div>
                     
-                    <div className="glass-box p-4 rounded-lg">
-                      <h4 className="font-semibold text-deep-green mb-2">Optimization Opportunities</h4>
-                      <ul className="text-sm text-gray-300 space-y-2">
+                    <div className="bg-gray-50 border border-gray-200 p-4 rounded-lg">
+                      <h4 className="font-semibold text-green-600 mb-2">Optimization Opportunities</h4>
+                      <ul className="text-sm text-gray-700 space-y-2">
                         <li>• Negotiate extended notice period for better flexibility</li>
                         <li>• Request price cap at 2.5% annual increase</li>
                         <li>• Consider reducing pickup frequency to 2x/week</li>
                       </ul>
                     </div>
                     
-                    <div className="glass-box p-4 rounded-lg">
+                    <div className="bg-gray-50 border border-gray-200 p-4 rounded-lg">
                       <h4 className="font-semibold text-red-400 mb-2">Risk Factors</h4>
-                      <ul className="text-sm text-gray-300 space-y-2">
+                      <ul className="text-sm text-gray-700 space-y-2">
                         <li>• Short termination notice limits negotiation leverage</li>
                         <li>• Above-market price increases impact long-term costs</li>
                         <li>• No fuel surcharge cap specified</li>
@@ -476,7 +476,7 @@ const ScannerDemo: React.FC = () => {
                     
                     <div className="bg-bourbon-orange/10 border border-bourbon-orange/30 p-4 rounded-lg">
                       <h4 className="font-semibold text-bourbon-orange mb-2">Recommended Actions</h4>
-                      <p className="text-sm text-gray-300">
+                      <p className="text-sm text-gray-700">
                         Schedule contract renegotiation 90 days before renewal. Focus on extending notice period 
                         and capping annual increases. Consider market alternatives to strengthen negotiation position.
                       </p>
@@ -512,8 +512,8 @@ const ScannerDemo: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               {/* Data Flow Visualization */}
-              <div className="glass-box rounded-2xl shadow-xl p-8 mb-8">
-                <h3 className="text-2xl font-semibold text-white mb-8 text-center font-heading">
+              <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-8 text-center font-heading">
                   Contract Data Warehouse Integration
                 </h3>
                 
@@ -524,10 +524,10 @@ const ScannerDemo: React.FC = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.6, duration: 0.5 }}
                   >
-                    <div className="bg-bourbon-orange/20 p-4 rounded-xl mb-2">
-                      <FileText className="w-8 h-8 text-bourbon-orange" />
+                    <div className="bg-blue-100 p-4 rounded-xl mb-2">
+                      <FileText className="w-8 h-8 text-blue-600" />
                     </div>
-                    <span className="text-sm font-medium text-gray-300">Parsed Data</span>
+                    <span className="text-sm font-medium text-gray-700">Parsed Data</span>
                   </motion.div>
 
                   <motion.div
@@ -535,7 +535,7 @@ const ScannerDemo: React.FC = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.8, duration: 0.3 }}
                   >
-                    <ArrowRight className="w-8 h-8 text-deep-green mx-8" />
+                    <ArrowRight className="w-8 h-8 text-green-600 mx-8" />
                   </motion.div>
 
                   <motion.div
@@ -544,10 +544,10 @@ const ScannerDemo: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1, duration: 0.5 }}
                   >
-                    <div className="bg-deep-green/20 p-4 rounded-xl mb-2">
-                      <Database className="w-8 h-8 text-deep-green" />
+                    <div className="bg-green-100 p-4 rounded-xl mb-2">
+                      <Database className="w-8 h-8 text-green-600" />
                     </div>
-                    <span className="text-sm font-medium text-gray-300">Data Warehouse</span>
+                    <span className="text-sm font-medium text-gray-700">Data Warehouse</span>
                   </motion.div>
 
                   <motion.div
@@ -555,7 +555,7 @@ const ScannerDemo: React.FC = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 1.2, duration: 0.3 }}
                   >
-                    <ArrowRight className="w-8 h-8 text-deep-green mx-8" />
+                    <ArrowRight className="w-8 h-8 text-green-600 mx-8" />
                   </motion.div>
 
                   <motion.div
@@ -564,10 +564,10 @@ const ScannerDemo: React.FC = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 1.4, duration: 0.5 }}
                   >
-                    <div className="bg-bourbon-orange/20 p-4 rounded-xl mb-2">
-                      <BarChart3 className="w-8 h-8 text-bourbon-orange" />
+                    <div className="bg-orange-100 p-4 rounded-xl mb-2">
+                      <BarChart3 className="w-8 h-8 text-orange-600" />
                     </div>
-                    <span className="text-sm font-medium text-gray-300">Analytics</span>
+                    <span className="text-sm font-medium text-gray-700">Analytics</span>
                   </motion.div>
                 </div>
               </div>
@@ -587,7 +587,7 @@ const ScannerDemo: React.FC = () => {
             >
               <motion.button
                 onClick={resetDemo}
-                className="bg-deep-green text-white px-8 py-3 rounded-xl hover:bg-deep-green/80 transition-ease font-medium"
+                className="bg-green-600 text-white px-8 py-3 rounded-xl hover:bg-green-700 transition-ease font-medium"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
