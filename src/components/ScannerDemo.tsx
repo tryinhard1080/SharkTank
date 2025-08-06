@@ -363,13 +363,16 @@ const ScannerDemo: React.FC = () => {
                   {/* Left column: PDF Viewer placeholder */}
                   <div className="space-y-4">
                     <h4 className="text-lg font-semibold text-gray-900 font-heading">Document Preview</h4>
-                    <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 h-96 flex items-center justify-center">
-                      <div className="text-center">
-                        <FileText className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                        <p className="text-gray-400">PDF Viewer Integration</p>
-                        <p className="text-sm text-gray-500 mt-2">Contract document would display here</p>
-                      </div>
+                    <div className="bg-gray-50 border border-gray-200 rounded-xl overflow-hidden h-96">
+                      <img 
+                        src="/The Mint 425 - Missing Fees Example.jpg"
+                        alt="Contract Document Preview - The Mint 425 Missing Fees Example"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
+                    <p className="text-sm text-gray-500 text-center">
+                      Sample contract showing fee analysis and discrepancies
+                    </p>
                   </div>
 
                   {/* Right column: Clause list with badges */}
