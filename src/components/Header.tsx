@@ -30,10 +30,10 @@ const Header: React.FC<HeaderProps> = ({
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <img 
-                src="/image.png" 
-                alt="Advantage Waste Analyzer" 
-                className="h-14 w-auto transition-ease hover:scale-105"
+              <img
+                src="/image.png"
+                alt="WasteWise"
+                className="h-14 w-auto transition-transform duration-300 hover:scale-105"
               />
             </div>
           </div>
@@ -51,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({
           <div className="md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-300 hover:text-white focus-visible:outline-bourbon-orange transition-ease"
+              className="text-gray-300 hover:text-white focus-visible:outline-electric-blue transition-all duration-300"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -62,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({
         {mobileMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-dark-navy border-t border-gray-800">
-              <Navigation 
+              <Navigation
                 sections={sections}
                 activeSection={activeSection}
                 onSectionChange={(section) => {

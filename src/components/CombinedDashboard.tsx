@@ -77,7 +77,7 @@ const AnimatedKPI: React.FC<AnimatedKPIProps> = ({
           <Icon className={`h-6 w-6 ${color}`} />
         </div>
       </div>
-      
+
       <div className="mb-2">
         <div className="text-3xl font-bold text-gray-900 mb-1">
           {prefix}{displayValue.toLocaleString()}{suffix}
@@ -86,7 +86,7 @@ const AnimatedKPI: React.FC<AnimatedKPIProps> = ({
           {title}
         </div>
       </div>
-      
+
       <div className="text-xs text-gray-500 bg-gray-50 px-3 py-2 rounded-lg">
         {trend}
       </div>

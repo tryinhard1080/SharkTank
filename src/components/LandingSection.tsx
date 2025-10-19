@@ -50,8 +50,8 @@ const LandingSection: React.FC = () => {
             Automate Your Waste Contract Analysis
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Transform hours of manual work into seconds of automated insights. 
-            Our AI-powered platform analyzes waste contracts and invoices to identify 
+            Transform hours of manual work into seconds of automated insights.
+            Our AI-powered platform analyzes waste contracts and invoices to identify
             cost savings and ensure compliance.
           </p>
         </div>
@@ -66,13 +66,13 @@ const LandingSection: React.FC = () => {
             {steps.map((step, index) => {
               const Icon = step.icon;
               const isActive = currentStep === index;
-              
+
               return (
                 <div
                   key={step.id}
                   className={`relative p-8 bg-white rounded-xl shadow-lg transition-all duration-700 transform ${
-                    isActive 
-                      ? 'scale-105 shadow-2xl ring-2 ring-green-500' 
+                    isActive
+                      ? 'scale-105 shadow-2xl ring-2 ring-green-500'
                       : 'hover:shadow-xl'
                   } ${isAnimating && isActive ? 'animate-pulse' : ''}`}
                 >
@@ -81,11 +81,11 @@ const LandingSection: React.FC = () => {
                   }`}>
                     <Icon className="w-8 h-8 text-white" />
                   </div>
-                  
+
                   <h4 className="text-xl font-semibold text-gray-900 mb-3 text-center">
                     Step {step.id}: {step.title}
                   </h4>
-                  
+
                   <p className="text-gray-600 text-center">
                     {step.description}
                   </p>
@@ -109,7 +109,7 @@ const LandingSection: React.FC = () => {
 
         {/* Demo Upload Area */}
         <div className="max-w-2xl mx-auto">
-          <div className="bg-gray-50 rounded-xl shadow-lg p-8 border-2 border-dashed border-gray-300 hover:border-bourbon-orange transition-ease">
+          <div className="bg-gray-50 rounded-xl shadow-lg p-8 border-2 border-dashed border-gray-300 hover:border-electric-blue transition-all duration-300">
             <div className="text-center">
               <Upload className="w-12 h-12 text-gray-500 mx-auto mb-4" />
               <h4 className="text-lg font-semibold text-gray-900 mb-2 font-heading">
@@ -118,13 +118,13 @@ const LandingSection: React.FC = () => {
               <p className="text-gray-600 mb-6 font-body">
                 Upload a sample waste contract or invoice to see the magic happen
               </p>
-              
+
               <div className="space-y-4">
-                <button className="w-full bg-bourbon-orange text-white py-3 px-6 rounded-lg hover:bg-bourbon-orange/80 transition-ease flex items-center justify-center font-medium">
+                <button className="w-full bg-electric-blue text-white py-3 px-6 rounded-lg hover:bg-electric-blue/90 transition-all duration-300 flex items-center justify-center font-medium shadow-lg hover:shadow-xl hover:scale-105">
                   <Upload className="w-5 h-5 mr-2" />
                   Choose Files to Upload
                 </button>
-                
+
                 <div className="text-sm text-gray-500">
                   Supports PDF, JPG, PNG files up to 10MB
                 </div>
@@ -135,23 +135,23 @@ const LandingSection: React.FC = () => {
 
         {/* Benefits Grid */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <div className="bg-white p-6 rounded-xl shadow-lg text-center">
+          <div className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
             <div className="w-12 h-12 bg-deep-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <TrendingUp className="w-6 h-6 text-deep-green" />
             </div>
             <h4 className="text-lg font-semibold text-gray-900 mb-2 font-heading">Save Time</h4>
             <p className="text-gray-600">Reduce manual review time from hours to minutes</p>
           </div>
-          
-          <div className="bg-white p-6 rounded-xl shadow-lg text-center">
+
+          <div className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
             <div className="w-12 h-12 bg-deep-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <CheckCircle className="w-6 h-6 text-deep-green" />
             </div>
             <h4 className="text-lg font-semibold text-gray-900 mb-2 font-heading">Ensure Compliance</h4>
             <p className="text-gray-600">Automatically flag contract violations and discrepancies</p>
           </div>
-          
-          <div className="bg-white p-6 rounded-xl shadow-lg text-center">
+
+          <div className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
             <div className="w-12 h-12 bg-deep-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <FileText className="w-6 h-6 text-deep-green" />
             </div>

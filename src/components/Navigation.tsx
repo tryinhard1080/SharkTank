@@ -19,23 +19,23 @@ const Navigation: React.FC<NavigationProps> = ({
   onSectionChange, 
   mobile = false 
 }) => {
-  const baseClasses = mobile 
-    ? "block px-3 py-2 rounded-md text-base font-medium transition-ease"
-    : "inline-flex items-center px-3 py-2 rounded-md text-sm font-medium transition-ease";
+  const baseClasses = mobile
+    ? "block px-3 py-2 rounded-md text-base font-medium transition-all duration-300"
+    : "inline-flex items-center px-3 py-2 rounded-md text-sm font-medium transition-all duration-300";
 
   return (
     <nav className={mobile ? "space-y-1" : "flex space-x-4"}>
       {sections.map((section) => {
         const Icon = section.icon;
         const isActive = activeSection === section.id;
-        
+
         return (
           <button
             key={section.id}
             onClick={() => onSectionChange(section.id)}
             className={`${baseClasses} ${
               isActive
-                ? 'bg-bourbon-orange text-white'
+                ? 'bg-electric-blue text-white'
                 : 'text-gray-300 hover:text-white hover:bg-gray-700'
             }`}
           >
