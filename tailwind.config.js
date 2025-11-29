@@ -32,6 +32,9 @@ export default {
         'electric-blue': '#2C5F2D',  // Maps to forest-green for gradual migration
         'neon-green': '#22C55E',     // Maps to success green
         'sunset-coral': '#DC2626',   // Maps to danger
+        'deep-green': '#1a4d1c',     // Darker forest green variant
+        'bourbon-orange': '#FF8C00', // Accent orange
+        'dark-navy': '#1f4220',      // Maps to forest-dark
         'navy': {
           900: '#1f4220',  // Maps to forest-dark
           800: '#2C5F2D',  // Maps to forest-green
