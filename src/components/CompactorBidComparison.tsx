@@ -5,12 +5,12 @@ const CompactorBidComparison: React.FC = () => {
   const contractComparison = [
     {
       element: 'Monthly Equipment Cost',
-      craRental: { value: '$1,662.00', note: 'Highest monthly cost', color: 'bg-red-100 text-red-800' },
-      towerPurchase: { value: '$0 recurring', note: 'One-time purchase', color: 'bg-green-100 text-green-800' },
-      towerRental: { value: '$1,232.00 (3-phase) $1,352.00 (single-phase)', note: '20% lower than CRA', color: 'bg-yellow-100 text-yellow-800' },
-      wmPurchase: { value: '$0 recurring', note: 'One-time purchase', color: 'bg-green-100 text-green-800' },
-      wmRental: { value: '$1,230.00', note: 'Lowest rental rate', color: 'bg-green-100 text-green-800' },
-      craPurchase: { value: '$0 recurring', note: 'One-time purchase', color: 'bg-pink-100 text-pink-800' }
+      craRental: { value: '$1,662.00', note: 'Highest monthly cost', color: 'bg-gradient-to-r from-sunset-coral/20 to-alert-red/10 text-sunset-coral border border-sunset-coral/30' },
+      towerPurchase: { value: '$0 recurring', note: 'One-time purchase', color: 'bg-gradient-to-r from-neon-green/20 to-green-600/10 text-neon-green border border-neon-green/30' },
+      towerRental: { value: '$1,232.00 (3-phase) $1,352.00 (single-phase)', note: '20% lower than CRA', color: 'bg-gradient-to-r from-alert-yellow/20 to-orange-500/10 text-alert-yellow border border-alert-yellow/30' },
+      wmPurchase: { value: '$0 recurring', note: 'One-time purchase', color: 'bg-gradient-to-r from-neon-green/20 to-green-600/10 text-neon-green border border-neon-green/30' },
+      wmRental: { value: '$1,230.00', note: 'Lowest rental rate', color: 'bg-gradient-to-r from-neon-green/20 to-green-600/10 text-neon-green border border-neon-green/30' },
+      craPurchase: { value: '$0 recurring', note: 'One-time purchase', color: 'bg-gradient-to-r from-electric-blue/20 to-navy-700/10 text-electric-blue border border-electric-blue/30' }
     },
     {
       element: 'Initial Investment',
@@ -86,7 +86,7 @@ const CompactorBidComparison: React.FC = () => {
       maintenance: 'Included',
       endOfTermValue: '$0',
       totalFiveYear: '$99,720',
-      color: 'bg-red-50 border-red-200',
+      color: 'bg-white/90 backdrop-blur-glass-sm border-sunset-coral shadow-card',
       ranking: '5th'
     },
     {
@@ -99,7 +99,7 @@ const CompactorBidComparison: React.FC = () => {
       endOfTermValue: 'Owned asset',
       totalFiveYear: '$83,166*',
       totalFiveYearCost: '$83,166*',
-      color: 'bg-green-50 border-green-200',
+      color: 'bg-white/90 backdrop-blur-glass-sm border-neon-green shadow-card',
       ranking: '4th'
     },
     {
@@ -110,7 +110,7 @@ const CompactorBidComparison: React.FC = () => {
       maintenance: 'Included',
       endOfTermValue: '$0',
       totalFiveYear: '$73,920',
-      color: 'bg-yellow-50 border-yellow-200',
+      color: 'bg-white/90 backdrop-blur-glass-sm border-alert-yellow shadow-card',
       ranking: '3rd'
     },
     {
@@ -122,7 +122,7 @@ const CompactorBidComparison: React.FC = () => {
       monthlyCost: '$0',
       endOfTermValue: 'Owned asset',
       totalFiveYear: '$71,362*',
-      color: 'bg-blue-50 border-blue-200',
+      color: 'bg-white/90 backdrop-blur-glass-sm border-electric-blue shadow-card',
       ranking: '2nd'
     },
     {

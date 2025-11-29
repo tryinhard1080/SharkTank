@@ -60,32 +60,32 @@ const InvoiceDemo: React.FC = () => {
       title: 'Overcharges Detected',
       value: '$230',
       icon: AlertTriangle,
-      color: 'text-red-600',
-      bgColor: 'bg-red-100',
+      color: 'text-danger',
+      bgColor: 'bg-gradient-to-br from-danger/20 to-danger/10',
       description: 'Invoice amounts exceed contracted rates'
     },
     {
       title: 'Processing Time',
       value: '15 sec',
       icon: Clock,
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-100',
+      color: 'text-forest-800',
+      bgColor: 'bg-gradient-to-br from-forest-800/20 to-forest-900/10 shadow-glow',
       description: 'Automated invoice analysis vs manual review'
     },
     {
       title: 'Compliance Issues',
       value: '2',
       icon: FileText,
-      color: 'text-orange-600',
-      bgColor: 'bg-orange-100',
+      color: 'text-alert-yellow',
+      bgColor: 'bg-gradient-to-br from-orange-500/20 to-alert-yellow/10',
       description: 'Invoice discrepancies flagged for review'
     }
   ];
 
   const spendBreakdown = [
-    { category: 'Base Service', amount: 2450, percentage: 67, color: 'bg-blue-500' },
-    { category: 'Overages', amount: 230, percentage: 6, color: 'bg-red-500' },
-    { category: 'Additional Fees', amount: 125, percentage: 3, color: 'bg-orange-500' }
+    { category: 'Base Service', amount: 2450, percentage: 67, color: 'bg-forest-800' },
+    { category: 'Overages', amount: 230, percentage: 6, color: 'bg-danger' },
+    { category: 'Additional Fees', amount: 125, percentage: 3, color: 'bg-success' }
   ];
 
   const comparisonData = [

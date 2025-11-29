@@ -4,36 +4,45 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary Brand Colors (Navy)
-        'dark-navy': '#00345B',
-        'navy': {
-          900: '#00345B',
-          800: '#004A80',
-          700: '#0066A5',
-          100: '#E6F0F7',
+        // WasteWise Gold Standard Colors (Forest Green Theme)
+        'forest': {
+          900: '#1f4220',    // Darkest - headers, primary buttons
+          800: '#2C5F2D',    // Primary brand color
+          700: '#3d7a3e',    // Hover states
+          600: '#4e954f',    // Secondary elements
+          500: '#5fb060',    // Lighter accent
+          100: '#e8f5e9',    // Light backgrounds
+          50: '#f1f8f2',     // Lightest background
         },
-        // Modern Accent Colors (Electric Blue & Neon Green)
-        'electric-blue': '#0080FF',
-        'neon-green': '#00FF88',
-        'sunset-coral': '#FF6B6B',
-        // Legacy (maintaining backward compatibility)
-        'bourbon-orange': '#B87024',
-        'deep-green': '#2D6A4F',
-        // Expanded Palette
+        'forest-green': '#2C5F2D',   // Primary (alias)
+        'forest-dark': '#1f4220',    // Dark variant (alias)
+        'light-green': '#90EE90',    // Light accent
+        // Status Colors (Gold Standard)
+        'success': '#22C55E',
+        'warning': '#EAB308',
+        'danger': '#DC2626',
         'orange': {
-          600: '#B87024',
-          500: '#D68934',
-          100: '#FDEEE0',
+          DEFAULT: '#FF8C00',  // Accent color
+          600: '#e67e00',
+          500: '#FF8C00',
+          400: '#ffa333',
+          100: '#fff3e0',
         },
-        'green': {
-          700: '#2D6A4F',
-          600: '#00D97E',
-          500: '#40916C',
-          100: '#D8F3DC',
+        // Legacy compatibility aliases
+        'electric-blue': '#2C5F2D',  // Maps to forest-green for gradual migration
+        'neon-green': '#22C55E',     // Maps to success green
+        'sunset-coral': '#DC2626',   // Maps to danger
+        'navy': {
+          900: '#1f4220',  // Maps to forest-dark
+          800: '#2C5F2D',  // Maps to forest-green
+          700: '#3d7a3e',
+          100: '#e8f5e9',
         },
+        // Alert colors
         'alert': {
-          red: '#D62828',
-          yellow: '#F77F00',
+          red: '#DC2626',
+          yellow: '#EAB308',
+          orange: '#FF8C00',
         },
       },
       fontFamily: {
@@ -56,8 +65,8 @@ export default {
           '100%': { opacity: '0.7', color: '#B87024' },
         },
         'pulse-glow': {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(0, 128, 255, 0.4)' },
-          '50%': { boxShadow: '0 0 40px rgba(0, 128, 255, 0.8)' },
+          '0%, 100%': { boxShadow: '0 0 20px rgba(44, 95, 45, 0.4)' },
+          '50%': { boxShadow: '0 0 40px rgba(44, 95, 45, 0.8)' },
         },
         'count-up': {
           '0%': { transform: 'scale(0.8)', opacity: '0' },
@@ -86,8 +95,9 @@ export default {
         'glass-sm': '10px',
       },
       boxShadow: {
-        'glow': '0 0 20px rgba(0, 128, 255, 0.5)',
-        'glow-green': '0 0 20px rgba(0, 255, 136, 0.5)',
+        'glow': '0 0 20px rgba(44, 95, 45, 0.5)',
+        'glow-green': '0 0 20px rgba(34, 197, 94, 0.5)',
+        'glow-forest': '0 0 20px rgba(44, 95, 45, 0.5)',
         'float': '0 20px 60px rgba(0, 0, 0, 0.15)',
         'card': '0 4px 20px rgba(0, 0, 0, 0.08)',
       },

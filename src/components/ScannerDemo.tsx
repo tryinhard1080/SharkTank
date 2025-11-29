@@ -59,32 +59,32 @@ const ScannerDemo: React.FC = () => {
       title: 'Savings Identified',
       value: '$3,250',
       icon: DollarSign,
-      color: 'text-green-600',
-      bgColor: 'bg-green-100',
+      color: 'text-success',
+      bgColor: 'bg-gradient-to-br from-success/20 to-forest-700/10 shadow-glow-green',
       description: 'Based on market rates for similar properties in your area'
     },
     {
       title: 'Overcharges Detected',
       value: '12%',
       icon: AlertTriangle,
-      color: 'text-orange-600',
-      bgColor: 'bg-orange-100',
+      color: 'text-danger',
+      bgColor: 'bg-gradient-to-br from-danger/20 to-danger/10',
       description: 'Invoice amounts exceed contracted rates'
     },
     {
       title: 'Time Saved',
       value: '3.5 hrs',
       icon: Clock,
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-100',
+      color: 'text-forest-800',
+      bgColor: 'bg-gradient-to-br from-forest-800/20 to-forest-900/10 shadow-glow',
       description: 'Automated analysis vs manual contract review'
     }
   ];
 
   const spendBreakdown = [
-    { category: 'Base Service', amount: 2450, percentage: 65, color: 'bg-blue-500' },
-    { category: 'Overages', amount: 890, percentage: 24, color: 'bg-orange-500' },
-    { category: 'Fees', amount: 410, percentage: 11, color: 'bg-purple-500' }
+    { category: 'Base Service', amount: 2450, percentage: 65, color: 'bg-forest-800' },
+    { category: 'Overages', amount: 890, percentage: 24, color: 'bg-danger' },
+    { category: 'Fees', amount: 410, percentage: 11, color: 'bg-success' }
   ];
 
   const comparisonData = [
@@ -188,11 +188,11 @@ const ScannerDemo: React.FC = () => {
   const getStatusBadge = (status: 'risk' | 'opportunity' | 'neutral') => {
     switch (status) {
       case 'risk':
-        return 'bg-red-500/20 text-red-300 border border-red-500/30';
+        return 'bg-danger/20 text-danger border border-danger/30';
       case 'opportunity':
-        return 'bg-deep-green/20 text-deep-green border border-deep-green/30';
+        return 'bg-forest-800/20 text-forest-800 border border-forest-800/30';
       default:
-        return 'bg-gray-500/20 text-gray-300 border border-gray-500/30';
+        return 'bg-gray-500/20 text-gray-600 border border-gray-500/30';
     }
   };
 
@@ -262,11 +262,11 @@ const ScannerDemo: React.FC = () => {
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="bg-white rounded-2xl shadow-xl p-12 border-2 border-dashed border-gray-300 hover:border-bourbon-orange transition-ease">
+              <div className="bg-white/90 backdrop-blur-glass-sm rounded-2xl shadow-card p-12 border-2 border-dashed border-gray-300 hover:border-forest-800 transition-all duration-300">
                 <div className="text-center">
                   {/* Lottie Animation Placeholder */}
-                  <div className="w-24 h-24 mx-auto mb-6 bg-bourbon-orange/20 rounded-full flex items-center justify-center">
-                    <div className="w-16 h-16 border-4 border-bourbon-orange border-t-transparent rounded-full animate-spin"></div>
+                  <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-forest-800/20 to-forest-900/10 rounded-full flex items-center justify-center shadow-glow">
+                    <div className="w-16 h-16 border-4 border-forest-800 border-t-transparent rounded-full animate-spin"></div>
                     {/* TODO: Replace with Lottie animation player loading "doc-scan.json" */}
                   </div>
                   <h3 className="text-2xl font-semibold text-gray-900 mb-4 font-heading">
@@ -275,10 +275,10 @@ const ScannerDemo: React.FC = () => {
                   <p className="text-gray-600 mb-8 font-body">
                     Advanced OCR and AI parsing will extract contract terms and identify optimization opportunities
                   </p>
-                  
+
                   <motion.button
                     onClick={handleUpload}
-                    className="bg-bourbon-orange text-white px-8 py-4 rounded-xl hover:bg-bourbon-orange/80 transition-ease flex items-center justify-center mx-auto text-lg font-medium"
+                    className="bg-forest-800 text-white px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center mx-auto text-lg font-medium shadow-glow animate-pulse-glow hover:scale-105 hover:bg-forest-700"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -305,22 +305,22 @@ const ScannerDemo: React.FC = () => {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="bg-white rounded-2xl shadow-xl p-12 text-center">
+              <div className="bg-white/90 backdrop-blur-glass-sm rounded-2xl shadow-card p-12 text-center">
                 <motion.div
-                  className="w-24 h-24 mx-auto mb-6 bg-bourbon-orange/20 rounded-full flex items-center justify-center"
+                  className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-forest-800/20 to-forest-900/10 rounded-full flex items-center justify-center shadow-glow"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                 >
-                  <FileText className="w-12 h-12 text-bourbon-orange" />
+                  <FileText className="w-12 h-12 text-forest-800" />
                 </motion.div>
-                
+
                 <h3 className="text-2xl font-semibold text-gray-900 mb-4 font-heading">
                   Scanning Document...
                 </h3>
-                
+
                 <div className="w-full bg-gray-200 rounded-full h-3 mb-4">
                   <motion.div
-                    className="bg-bourbon-orange h-3 rounded-full"
+                    className="bg-forest-800 h-3 rounded-full"
                     initial={{ width: 0 }}
                     animate={{ width: `${scanProgress}%` }}
                     transition={{ duration: 0.1 }}
@@ -352,7 +352,7 @@ const ScannerDemo: React.FC = () => {
                   </h3>
                   <button
                     onClick={() => setShowDiffPanel(true)}
-                    className="ml-auto bg-bourbon-orange text-white px-4 py-2 rounded-lg hover:bg-bourbon-orange/80 transition-ease text-sm font-medium"
+                    className="ml-auto bg-orange text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-ease text-sm font-medium"
                   >
                     Explain Differences
                   </button>
@@ -451,7 +451,7 @@ const ScannerDemo: React.FC = () => {
                   
                   <div className="space-y-6">
                     <div className="bg-gray-50 border border-gray-200 p-4 rounded-lg">
-                      <h4 className="font-semibold text-bourbon-orange mb-2">Key Findings</h4>
+                      <h4 className="font-semibold text-orange mb-2">Key Findings</h4>
                       <ul className="text-sm text-gray-700 space-y-2">
                         <li>• Termination clause requires 30-day notice (industry standard: 60 days)</li>
                         <li>• Annual price increase of 3.5% exceeds market average of 2.8%</li>
@@ -477,8 +477,8 @@ const ScannerDemo: React.FC = () => {
                       </ul>
                     </div>
                     
-                    <div className="bg-bourbon-orange/10 border border-bourbon-orange/30 p-4 rounded-lg">
-                      <h4 className="font-semibold text-bourbon-orange mb-2">Recommended Actions</h4>
+                    <div className="bg-orange-100 border border-orange/30 p-4 rounded-lg">
+                      <h4 className="font-semibold text-orange mb-2">Recommended Actions</h4>
                       <p className="text-sm text-gray-700">
                         Schedule contract renegotiation 90 days before renewal. Focus on extending notice period 
                         and capping annual increases. Consider market alternatives to strengthen negotiation position.

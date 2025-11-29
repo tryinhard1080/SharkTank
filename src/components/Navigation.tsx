@@ -35,8 +35,8 @@ const Navigation: React.FC<NavigationProps> = ({
             onClick={() => onSectionChange(section.id)}
             className={`${baseClasses} ${
               isActive
-                ? 'bg-electric-blue text-white'
-                : 'text-gray-300 hover:text-white hover:bg-gray-700'
+                ? 'bg-forest-800 text-white shadow-glow-forest transform scale-105'
+                : 'text-gray-300 hover:text-white hover:bg-forest-700 hover:scale-105'
             }`}
           >
             <Icon size={16} className={mobile ? "inline mr-2" : "mr-2"} />

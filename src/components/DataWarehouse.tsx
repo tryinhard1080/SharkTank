@@ -291,8 +291,8 @@ const DataWarehouse: React.FC = () => {
           <div className="flex items-center justify-between overflow-x-auto">
             {/* Source Systems */}
             <div className="flex flex-col items-center min-w-max">
-              <div className="bg-blue-100 p-4 rounded-lg mb-2">
-                <Building className="w-8 h-8 text-blue-600" />
+              <div className="bg-gradient-to-br from-forest-800/20 to-forest-900/10 p-4 rounded-lg mb-2 shadow-glow">
+                <Building className="w-8 h-8 text-forest-800" />
               </div>
               <span className="text-sm font-medium text-gray-700">Contract Data</span>
             </div>
@@ -300,8 +300,8 @@ const DataWarehouse: React.FC = () => {
             <FlowArrow delay={0} />
 
             <div className="flex flex-col items-center min-w-max">
-              <div className="bg-purple-100 p-4 rounded-lg mb-2">
-                <Database className="w-8 h-8 text-purple-600" />
+              <div className="bg-gradient-to-br from-success/20 to-forest-700/10 p-4 rounded-lg mb-2 shadow-glow-green">
+                <Database className="w-8 h-8 text-success" />
               </div>
               <span className="text-sm font-medium text-gray-700">Processing Engine</span>
             </div>
@@ -309,8 +309,8 @@ const DataWarehouse: React.FC = () => {
             <FlowArrow delay={300} />
 
             <div className="flex flex-col items-center min-w-max">
-              <div className="bg-green-100 p-4 rounded-lg mb-2">
-                <TrendingUp className="w-8 h-8 text-green-600" />
+              <div className="bg-gradient-to-br from-forest-800 to-success p-4 rounded-lg mb-2 shadow-glow">
+                <TrendingUp className="w-8 h-8 text-white" />
               </div>
               <span className="text-sm font-medium text-gray-700">Analytics Layer</span>
             </div>
@@ -332,24 +332,24 @@ const DataWarehouse: React.FC = () => {
           <div className="bg-white rounded-xl shadow-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-6">Portfolio Overview</h3>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="bg-blue-50 p-4 rounded-lg text-center">
-                <div className="text-2xl font-bold text-blue-600">{totalProperties}</div>
+              <div className="bg-gradient-to-br from-forest-800/20 to-forest-900/10 p-4 rounded-lg text-center shadow-card hover:shadow-float transition-all duration-300">
+                <div className="text-2xl font-bold text-forest-800">{totalProperties}</div>
                 <div className="text-sm text-gray-600">Total Properties</div>
               </div>
-              <div className="bg-green-50 p-4 rounded-lg text-center">
-                <div className="text-2xl font-bold text-green-600">${totalMonthlySpend.toLocaleString()}</div>
+              <div className="bg-gradient-to-br from-success/20 to-forest-700/10 p-4 rounded-lg text-center shadow-card hover:shadow-float transition-all duration-300">
+                <div className="text-2xl font-bold text-success">${totalMonthlySpend.toLocaleString()}</div>
                 <div className="text-sm text-gray-600">Monthly Spend</div>
               </div>
-              <div className="bg-indigo-50 p-4 rounded-lg text-center">
-                <div className="text-2xl font-bold text-indigo-600">${averageSpendPerProperty.toLocaleString()}</div>
+              <div className="bg-gradient-to-br from-forest-700/20 to-forest-800/10 p-4 rounded-lg text-center shadow-card hover:shadow-float transition-all duration-300">
+                <div className="text-2xl font-bold text-forest-700">${averageSpendPerProperty.toLocaleString()}</div>
                 <div className="text-sm text-gray-600">Avg Spend/Property</div>
               </div>
-              <div className="bg-purple-50 p-4 rounded-lg text-center">
-                <div className="text-2xl font-bold text-purple-600">{totalUnits.toLocaleString()}</div>
-                <div className="text-sm text-gray-600">Total Units</div>
+              <div className="bg-gradient-to-br from-forest-800 to-success p-4 rounded-lg text-center shadow-glow hover:shadow-float transition-all duration-300">
+                <div className="text-2xl font-bold text-white">{totalUnits.toLocaleString()}</div>
+                <div className="text-sm text-white/90">Total Units</div>
               </div>
-              <div className="bg-orange-50 p-4 rounded-lg text-center">
-                <div className="text-2xl font-bold text-orange-600">${totalSavingsOpportunity.toLocaleString()}</div>
+              <div className="bg-gradient-to-br from-success/20 to-forest-700/10 p-4 rounded-lg text-center shadow-glow-green hover:shadow-float transition-all duration-300">
+                <div className="text-2xl font-bold text-success">${totalSavingsOpportunity.toLocaleString()}</div>
                 <div className="text-sm text-gray-600">Savings Opportunity</div>
               </div>
             </div>
@@ -364,10 +364,10 @@ const DataWarehouse: React.FC = () => {
                 .map(([hauler, count]) => {
                   const percentage = Math.round((count / totalProperties) * 100);
                   const getHaulerColor = (haulerName: string) => {
-                    if (haulerName.includes('Waste Management')) return 'bg-green-500';
-                    if (haulerName.includes('Republic')) return 'bg-blue-500';
-                    if (haulerName.includes('GFL')) return 'bg-purple-500';
-                    return 'bg-gray-500';
+                    if (haulerName.includes('Waste Management')) return 'bg-success';
+                    if (haulerName.includes('Republic')) return 'bg-forest-800';
+                    if (haulerName.includes('GFL')) return 'bg-gradient-to-r from-forest-800 to-success';
+                    return 'bg-forest-700';
                   };
                   
                   return (
